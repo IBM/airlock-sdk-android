@@ -1,0 +1,40 @@
+{
+  "defaultLanguage": "en",
+  "devS3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/DEV4\/",
+  "productId": "940af7f9-b6d8-4999-a9d4-e1537f5adccc",
+  "productName": "QA.WhiteList",
+  "root": {
+    "features": [
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "features": [
+        ],
+        "name": "f1",
+        "namespace": "wl",
+        "noCachedResults": false,
+        "type": "FEATURE",
+        "uniqueId": "505772b6-6d37-49df-acb3-5fdb3882820e"
+      },
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "features": [
+        ],
+        "name": "f2",
+        "namespace": "wl",
+        "noCachedResults": false,
+        "type": "FEATURE",
+        "uniqueId": "e0645f8c-d15b-43fa-ad80-97e0bfd3d952"
+      }
+    ],
+    "type": "ROOT",
+    "uniqueId": "5e693fac-74bc-4cc1-93bc-b6684e496880"
+  },
+  "s3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/DEV4\/",
+  "seasonId": "628a96f9-8e36-4e4c-9d7f-edbfb3365126",
+  "supportedLanguages": [
+    "en"
+  ],
+  "version": "V2.5"
+}

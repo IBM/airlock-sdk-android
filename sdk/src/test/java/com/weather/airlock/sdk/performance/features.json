@@ -1,0 +1,124 @@
+{
+  "seasonName": "AndroidFlagship.S1_1",
+  "minVersion": "0.1",
+  "seasonId": "e2d4efc6-90cf-40f7-a4aa-323daf14e0e3",
+  "productId": "e2d4efc6-90cf-40f7-a4aa-323daf14e0ec",
+  "root": {
+    "type": "ROOT",
+    "uniqueId": "bdaeb14f-9593-4bec-be35-9f3dfa1cd55c",
+    "features": [
+      {
+        "enabled": true,
+        "lastModified": 1469599032402,
+        "parent": null,
+        "features": [],
+        "uniqueId": "cf336e86-00b8-48b1-8021-cbd19f08931d",
+        "type": "FEATURE",
+        "stage": "DEVELOPMENT",
+        "additionalInfo": {},
+        "namespace": "ns1",
+        "creator": "Philip",
+        "creationDate": 1469599032402,
+        "internalUserGroups": [
+          "QA",
+          "DEV"
+        ],
+        "description": "F1 desc",
+        "rule": {
+          "ruleString": "(profile.gender == \"F\" | context.location == \"CA\" ) | context.device-owner==\"twc\" | profile.first-name[3]==\"Idit\""
+        },
+        "minAppVersion": "2.3",
+        "name": "Multi Location Home Screen",
+        "seasonId": "e2d4efc6-90cf-40f7-a4aa-323daf14e0e3",
+        "owner": "Norman",
+        "defaultIfAirlockSystemIsDown": false
+      },
+      {
+        "uniqueId": "cf336e86-00b8-48b1-8021-cbd19f08921a",
+        "parent": null,
+        "type": "MUTUAL_EXCLUSION_GROUP",
+        "features": [
+          {
+            "uniqueId": "df336e86-00b8-49c1-8021-cbd19f08921f",
+            "enabled": true,
+            "lastModified": 1469599032402,
+            "parent": "cf336e86-00b8-48b1-8021-cbd19f08921a",
+            "type": "FEATURE",
+            "stage": "DEVELOPMENT",
+            "additionalInfo": {},
+            "namespace": "ns1",
+            "creator": "Philip",
+            "creationDate": 1469599032402,
+            "internalUserGroups": [
+              "QA",
+              "DEV"
+            ],
+            "description": "Video v1",
+            "rule": {
+              "ruleString": "true"
+            },
+            "minAppVersion": "2.3",
+            "name": "Video",
+            "seasonId": "e2d4efc6-90cf-40f7-a4aa-323daf14e0e3",
+            "features": [
+              {
+                "uniqueId": "af336e86-00b8-59e1-8021-cbd19f08921d",
+                "enabled": true,
+                "lastModified": 1469599032402,
+                "parent": "df336e86-00b8-49c1-8021-cbd19f08921f",
+                "type": "FEATURE",
+                "stage": "DEVELOPMENT",
+                "additionalInfo": {},
+                "namespace": "ns1",
+                "creator": "Philip",
+                "creationDate": 1469599032402,
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "description": "Video high resolution for v1",
+                "rule": {
+                  "ruleString": "true"
+                },
+                "minAppVersion": "2.3",
+                "name": "Video HighRes",
+                "seasonId": "e2d4efc6-90cf-40f7-a4aa-323daf14e0e3",
+                "features": [],
+                "owner": "Norman",
+                "defaultIfAirlockSystemIsDown": false
+              }
+            ],
+            "owner": "Norman",
+            "defaultIfAirlockSystemIsDown": false
+          },
+          {
+            "uniqueId": "bf336e86-00b8-59b1-8021-cbd19f08921b",
+            "enabled": true,
+            "lastModified": 1469599032402,
+            "parent": "cf336e86-00b8-48b1-8021-cbd19f08921a",
+            "type": "FEATURE",
+            "stage": "DEVELOPMENT",
+            "additionalInfo": {},
+            "namespace": "ns1",
+            "creator": "Philip",
+            "creationDate": 1469599032402,
+            "internalUserGroups": [
+              "QA",
+              "DEV"
+            ],
+            "description": "Video v2, then next generation of the Video feature with high resolution",
+            "rule": {
+              "ruleString": "true"
+            },
+            "minAppVersion": "2.3",
+            "name": "Video NextGen",
+            "seasonId": "e2d4efc6-90cf-40f7-a4aa-323daf14e0e3",
+            "features": [],
+            "owner": "Norman",
+            "defaultIfAirlockSystemIsDown": false
+          }
+        ]
+      }
+    ]
+  }
+}

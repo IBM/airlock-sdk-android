@@ -1,0 +1,2244 @@
+{
+  "maxVersion": null,
+  "minVersion": "2.5",
+  "productId": "dcc5c96e-d53c-4104-8155-2007f4135cfc",
+  "root": {
+    "features": [
+      {
+        "additionalInfo": {},
+        "configurationRules": [],
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "displayName": null,
+        "enabled": true,
+        "features": [
+          {
+            "features": [
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\n\t\n  \"value\": parseInt((new Date(\"2017-01-15\")-new Date(context.weatherSummary.observation.obsTime))\/1000\/60\/60\/24) + \" DAYS TO GO\"\n\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "CoundDown",
+                    "namespace": "headsupCountDownHanukkah",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "912265d9-c764-4d39-b1c5-386c81d3efdf"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"fifteen_day\"\n\t},\n\t\"descriptor\":\"HAPPY HANUKKAH\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"chanukia\"\n\t},\n\t\"analyticsTileName\":\"Hanukkah...\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": false,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Count Down Hanukkah",
+                "namespace": "headsup",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.viewedLocation !== null && \ncontext.viewedLocation.country == \"IS\" &&\n((parseInt(new Date(\"2017-01-15\")-new Date(context.weatherSummary.observation.obsTime))\/1000\/60\/60\/24) < 14)"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "c0a7280b-ecda-4a36-bda8-6650fd568cbe"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"video\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"content_feed\",\n\t\t\"playlist\":null\n\t},\n\t\"preferredTileIndex\":-1,\n\t\"analyticsTileName\":\"Breaking News Video\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Breaking News Video",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.weatherSummary.contentMode !== null &&\n(context.weatherSummary.contentMode.mode == \"severe1\" || \ncontext.weatherSummary.contentMode.mode == \"severe2\") &&\n(((context.device.locale == \"en_US\" || context.device.locale == \"es_US\") && \ncontext.viewedLocation.country == \"US\") ||\n(context.device.locale == \"de_DE\" && context.viewedLocation.country == \"GM\"))"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "33ef465b-6113-4e19-901d-c6a0d7552aaf"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\t\n    \"descriptor\":translate(\"HeadsUp.LightningStrike\"),\n  \"value\": Math.round(context.weatherSummary.closestLightning.distance*10)\/10 + \" \" + getDistanceUnit() + \" \" + context.weatherSummary.closestLightning.cardinalDirection\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "Basic",
+                    "namespace": "headsupRealTimeLightning",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "8675eb72-f786-4c59-a602-ce7a93509423"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"radar_map\",\n\t\t\"layer\":\"lightning\"\n\t},\n\t\"descriptor\":\"LIGHTNING STRIKE\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"home_lightning_icon\"\n\t},\n\t\"analyticsTileName\":\"lightning\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Real Time Lightning",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.device.locale == \"en_US\"  &&\ncontext.viewedLocation.country == \"US\" && \ncontext.weatherSummary.observation !== null &&\ncontext.weatherSummary.observation.basedGPS == true &&\ncontext.weatherSummary.closestLightning !== null &&\ncontext.weatherSummary.closestLightning.distance !== null && \ncontext.weatherSummary.closestLightning.strikeTime != null"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "a0a9323e-8e8c-41a2-8ed1-729a374b43f6"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.WinterStormLikely\")\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "SamsungDEV",
+                      "DEV",
+                      "QA"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "Basic",
+                    "namespace": "headsupWinterStormImpactedNow",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "a2d557ac-0456-455b-9020-ab65137fcd95"
+                  },
+                  {
+                    "configurationRules": [
+                      {
+                        "configuration": "{\n\t\"value\" : translate(\"General.Today\")\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Today",
+                        "namespace": "headsupWinterStormImpactedNow",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestSnowAccumulation.dayPart == \"day\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "3fba0d58-244d-4b5e-bf3d-111308b63c5f"
+                      },
+                      {
+                        "configuration": "{\n\t\"value\" : translate(\"General.Tonight\")\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Tonight",
+                        "namespace": "headsupWinterStormImpactedNow",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestSnowAccumulation.dayPart == \"night\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "a77a621d-e99a-4b79-bbcd-be3a24028a85"
+                      }
+                    ],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "e1d4a074-ae2e-41ca-beba-04d38e56fcc6"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"winter_storm\"\n\t},\n\t\"descriptor\":\"WINTER STORM LIKELY\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_severe_circle\"\n\t},\n\t\"analyticsTileName\":\"Winter Storm Now\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Winter Storm Impacted Now",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "function isStormNow(){\n var winterPhenomenaCode = [\"BZ\", \"WS\",\"LE\",\"IS\",\"blizzard\",\"freezeRain\",\"TSI\", \"snowSquall\", \"snowFall\",\"winterStorm\"]\n\n return (context.weatherSummary.nearestWinterStormAlert !== null) && \n  (context.weatherSummary.nearestSnowAccumulation !== null) && \n  (winterPhenomenaCode.indexOf(context.weatherSummary.nearestWinterStormAlert.phenomenaCode) !== -1) &&\n  (context.weatherSummary.nearestWinterStormAlert.significanceCode == \"W\") && \n  context.weatherSummary.nearestSnowAccumulation.snowRange !== null &&\n  context.weatherSummary.nearestSnowAccumulation.snowRange !== \"0\"\t\n \n}\n\nisStormNow()"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "1665213c-4559-4d87-8e6a-0fbba0999cbf"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\n    \"descriptor\":translate(\"HeadsUp.Precipitation\"),\n\t\"value\": translate(\"HeadsUp.SeeRadar\")\n\t\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "SamsungDEV",
+                      "DEV",
+                      "QA"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "Basic",
+                    "namespace": "headsupRadar",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "2187bd63-ec6f-4989-829c-1cc30a562ac2"
+                  },
+                  {
+                    "configurationRules": [
+                      {
+                        "configuration": "{\n\t\"descriptor\": translate(\"HeadsUp.InView\", translate(\"HeadsUp.Rain\"))\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Rain",
+                        "namespace": "headsupRadar",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 1"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "e90bd9e4-57d9-4a02-a346-1256b48dbe4e"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\": translate(\"HeadsUp.InView\",  translate(\"HeadsUp.Snow\"))\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Snow",
+                        "namespace": "headsupRadar",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 2"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "0b32e7ee-4e77-44a1-a6ae-49f5f951ee68"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\": translate(\"HeadsUp.InView\",  translate(\"HeadsUp.Mix\"))\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Mix",
+                        "namespace": "headsupRadar",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 3"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "2d56c3e4-55c3-4456-acea-086ac96aefa6"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\": translate(\"HeadsUp.InView\",\ttranslate(\"HeadsUp.Storms\"))\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Storm",
+                        "namespace": "headsupRadar",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 4"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "bc77222b-71c3-4b02-9fb1-4835e6e74fa3"
+                      }
+                    ],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "896db703-6174-4d18-af12-0b89daa00718"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"radar_map\"\n\t},\n\t\"descriptor\":\"PRECIPITATION\",\n\t\"value\":\"SEE RADAR\",\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_radar_light\"\n\t},\n\t\"analyticsTileName\":\"radar\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Radar",
+                "namespace": "headsup",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "function statescodes() \n{ \n    var allRadarStates = [\"US\", \"AS\", \"GM\", \"NL\", \"LU\", \"BE\", \"FR\", \"UK\", \"EI\", \"LS\", \"SZ\", \"AN\", \"MN\"];\n    \n    return context.device !== null && \n            context.viewedLocation !== null &&\n            allRadarStates.indexOf(context.viewedLocation.country) !== -1 &&\n            context.weatherSummary.nearestStartPrecip !== null &&\n            context.weatherSummary.observation !== null &&\n            context.weatherSummary.nearestStartPrecip.eventType !== null &&\n            context.weatherSummary.nearestStartPrecip.eventType !== 0 &&\n            (new Date(context.weatherSummary.nearestStartPrecip.startTime) - \n                new Date(context.weatherSummary.observation.obsTime) <= 3*1000*60*60 )\n}\n\nstatescodes()"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "eea349a0-effb-4555-aab2-8a65f35d1ade"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"video\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"content_feed\",\n\t\t\"playlist\":null\n\t},\n\t\"preferredTileIndex\":-1,\n\t\"analyticsTileName\":\"Top Video\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Top Video",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "(context.weatherSummary.contentMode == null || \n(context.weatherSummary.contentMode !== null &&\ncontext.weatherSummary.contentMode.mode !== \"severe1\" &&\ncontext.weatherSummary.contentMode.mode !== \"severe2\")) &&\n(((context.device.locale == \"en_US\" || context.device.locale == \"es_US\") && \ncontext.viewedLocation.country == \"US\") ||\n(context.device.locale == \"de_DE\" && context.viewedLocation.country == \"GM\"))"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "2cd88ca3-52fc-4038-bba6-990579f1f69d"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\t\n    \"descriptor\":translate(\"HeadsUp.Precipitation\"),\n    \"value\": formatAMPM(context.weatherSummary.nearestStartPrecip.startTime)\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "Basic",
+                    "namespace": "headsupPrecipStart",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "88d3ccad-0ccb-41ac-b834-1e68b255b7a5"
+                  },
+                  {
+                    "configurationRules": [],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "8281daf0-3451-4be1-b6b5-2248aaed1758"
+                  },
+                  {
+                    "configurationRules": [
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.RainStarting\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "RainStarting",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip!== null &&\ncontext.weatherSummary.nearestStartPrecip.eventType == \"1\" &&\ncontext.weatherSummary.nearestStartPrecip.imminence ==\"2\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "51643f6d-3941-4852-9d94-1f3e7733b362"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.RainLikely\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Rain Likely",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip !== null &&\ncontext.weatherSummary.nearestStartPrecip.eventType == \"1\" &&\ncontext.weatherSummary.nearestStartPrecip.imminence == \"1\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "2a88138e-4436-40d0-99fd-9d807e34940d"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.RainPossible\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Rain Possible",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip !== null &&\ncontext.weatherSummary.nearestStartPrecip.eventType == \"1\" &&\ncontext.weatherSummary.nearestStartPrecip.imminence ==\"0\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "28aff5df-1223-463f-a72a-4b345a9b0c6e"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.LightSnow\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_snow\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Light Snow",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 2 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 2 && \ncontext.weatherSummary.nearestStartPrecip.severity == 1"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "591eb412-7cfe-4977-b41d-ba3d3e34b2ee"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.SnowStarting\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_snow\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Snow Starting",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 2 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 2 && \n(context.weatherSummary.nearestStartPrecip.severity == 2 ||\ncontext.weatherSummary.nearestStartPrecip.severity == 3)"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "c8324a98-7065-4023-a7df-4086d76faef8"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.SnowLikely\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_snow\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Snow Likely",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 2 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 1 && \n(context.weatherSummary.nearestStartPrecip.severity == 2 ||\ncontext.weatherSummary.nearestStartPrecip.severity == 3)"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "92817e07-26f9-4dee-b806-0c2233051694"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.LightSnowLikely\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_snow\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Light Snow Likely",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 2 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 1 && \ncontext.weatherSummary.nearestStartPrecip.severity == 1"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "def3cb12-19af-4505-9e0f-9f95a5e0f44f"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.SnowPossible\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_snow\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Snow Possible",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 2 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 0 && \n(context.weatherSummary.nearestStartPrecip.severity == 2 ||\ncontext.weatherSummary.nearestStartPrecip.severity == 3)"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "5e6457a4-4df6-4ecf-a037-9758fb9e569c"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.LightSnowPossible\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_snow\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Light Snow Possible",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 2 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 0 && \ncontext.weatherSummary.nearestStartPrecip.severity == 1"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "bbf1faaa-aaf3-4f9a-aac8-52c478feae81"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.MixStarting\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_wintry_mix_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Mix Starting",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 3 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 2"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "df004796-24ae-4c51-ab24-9586e0816e8c"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.MixLikely\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_wintry_mix_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Mix Likely",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 3 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 1"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "095b444e-c030-4664-a9ec-c48d86b12d27"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.MixPossible\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_wintry_mix_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Mix Possible",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 3 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 0"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "04bb7ceb-7fcf-42df-b61d-ee3c1df61972"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.StormsStarting\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Storms Starting",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 4 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 2"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "0cb4b275-5c5c-4fe3-8f48-9de1bc07c36a"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.StormsLikely\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Storms Likely",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 4 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 1"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "d0b87460-1438-4954-bf4e-cf69bfe5d5e6"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.StormsPossible\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Storms Possible",
+                        "namespace": "headsupPrecipStart",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 4 &&\ncontext.weatherSummary.nearestStartPrecip.imminence == 0"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "bb5d7e53-481d-40c9-960e-3fafa6635867"
+                      }
+                    ],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "42979d83-eac9-4e2d-a790-28fb5af6552d"
+                  },
+                  {
+                    "configurationRules": [],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "7003e0a2-b375-4327-b890-67aec2668359"
+                  },
+                  {
+                    "configurationRules": [],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "24364dbd-4c52-44db-b5ad-afa281869a49"
+                  },
+                  {
+                    "configurationRules": [],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "70327a92-00df-4194-b764-3a146a124c9f"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"hourly\"\n\t},\n\t\"descriptor\":\"PRECIPITATION\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t},\n\t\"analyticsTileName\":\"Precip Start\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Precip Start",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "function precip() \n{ \n    var wetPrecipCodes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 35, 37, 38, 39, 40, 41, 42, 43, 45, 46, 47];\n\n    return  context.weatherSummary.nearestStartPrecip !== null && \n            context.weatherSummary.nearestStartPrecip.eventType !==null &&\n            context.weatherSummary.nearestStartPrecip.eventType !== 0 &&\n            wetPrecipCodes.indexOf(context.weatherSummary.observation.skyCode ) == -1\n}\n\nprecip()"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "a0acb23c-562c-42c9-b3a6-1abc9132bafe"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\t\n\t\"descriptor\":translate(\"HeadsUp.RainEnding\"),\n\t\"value\":formatAMPM(context.weatherSummary.nearestStartPrecip.endTime)\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "Basic",
+                    "namespace": "headsupPrecipEnd",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "7a1fb4fe-307d-4487-95f8-0558acab8709"
+                  },
+                  {
+                    "configurationRules": [
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.RainEnding\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Rain Ending",
+                        "namespace": "headsupPrecipEnd",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == \"1\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "b54aadda-974e-4883-bd1c-455be6fd7569"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.SnowEnding\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_snow\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Snow Ending",
+                        "namespace": "headsupPrecipEnd",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == \"2\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "39f31306-ebc9-4bf3-bb2d-03c1d0fa111e"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.MixEnding\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_wintry_mix_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Mix Ending",
+                        "namespace": "headsupPrecipEnd",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 3"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "5983043d-112c-41d5-9d63-46158fbb8d8f"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.StormsEnding\"),\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Storms Ending",
+                        "namespace": "headsupPrecipEnd",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestStartPrecip.eventType == 4"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "a7b3ada6-28a7-40cc-9c66-e4232f4c88c5"
+                      }
+                    ],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "ce0f8132-2387-46f7-9272-930ca49a2153"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"hourly\"\n\t},\n\t\"descriptor\":\"RAIN ENDING\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"home_rain_icon\"\n\t},\n\t\"analyticsTileName\":\"some end rain analytics\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Precip End",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "function precipEnd() \n{ \n    var wetPrecipCodes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 35, 37, 38, 39, 40, 41, 42, 43, 45, 46, 47];\n\n    return wetPrecipCodes.indexOf(context.weatherSummary.observation.skyCode) !== -1 &&\n           context.weatherSummary.nearestStartPrecip !== null && \n           (new Date(context.weatherSummary.nearestStartPrecip.endTime) - \n           new Date(context.weatherSummary.observation.obsTime) <= 5*1000*60*60 )\n}\n\nprecipEnd()\n"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "ed6b5725-4915-42a3-813b-5c9fca1ebd10"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\t\n    \"descriptor\":translate(\"HeadsUp.Accumulation\"),\n    \"value\":context.weatherSummary.nearestSnowAccumulation.snowRange + \" \" + getLengthUnit()\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "ShowRange",
+                    "namespace": "headsupForecastedSnowAccumulation",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "375b52c6-50b2-436b-9277-552d4095e22e"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"winter_storm\"\n\t},\n\t\"descriptor\":\"ACCUMULATION\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_snow\"\n\t},\n\t\"analyticsTileName\":\"snow accumulation\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Forecasted Snow Accumulation",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.weatherSummary.nearestSnowAccumulation !== null &&\ncontext.weatherSummary.nearestSnowAccumulation.snowRange !== null && \ncontext.weatherSummary.nearestSnowAccumulation.snowRange.trim() !== \"\" &&\ncontext.weatherSummary.nearestSnowAccumulation.snowRange.trim() !== \"0\""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "3221dd29-0f13-48a5-b92e-8b48bc8ce090"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configurationRules": [
+                      {
+                        "configuration": "{\n\t\t\n\t\"descriptor\":translate(\"HeadsUp.WinterStormPossible\"),\t\n\t\"value\": translate(\"HeadsUp.48Hrs\")\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Next 48 Hours",
+                        "namespace": "headsupWinterStormForecast",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestWinterStormAlert.significanceCode == \"A\" || \ncontext.weatherSummary.nearestWinterStormAlert.significanceCode == \"S\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "eb63dc76-2f9c-4181-b692-b46b0c559e0d"
+                      },
+                      {
+                        "configuration": "{\t\n\t\"descriptor\":translate(\"HeadsUp.WinterStormPossible\"),\n\t\"value\" : translate(\"General.Tonight\")\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "DEV",
+                          "QA"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Tonight",
+                        "namespace": "headsupWinterStormForecast",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestSnowAccumulation.dayPart == \"night\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "c5530037-6145-479f-bb9c-fd8949499357"
+                      },
+                      {
+                        "configuration": "{\n\t\"descriptor\":translate(\"HeadsUp.WinterStormPossible\"),\n\t\"value\":translate(\"General.Today\")\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV",
+                          "SamsungDEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Today",
+                        "namespace": "headsupWinterStormForecast",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.nearestSnowAccumulation.dayPart == \"day\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "9c587a3e-331f-440d-81ee-c8d1a76ac1ef"
+                      }
+                    ],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "509b14c5-9f15-4f77-893b-1512b19e1e6c"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"winter_storm\"\n\t},\n\t\"descriptor\":\"WINTER STORM POSSIBLE\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_severe_circle\"\n\t},\n\t\"analyticsTileName\":\"Winter Storm Forecast\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Winter Storm Forecast",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "function isStormForecast(){\nvar winterPhenomenaCode = [\"BZ\", \"WS\",\"LE\",\"IS\",\"blizzard\",\"freezeRain\",\"TSI\", \"snowSquall\", \"snowFall\",\"winterStorm\"]\n\nreturn context.weatherSummary.nearestWinterStormAlert !== null &&\n    winterPhenomenaCode.indexOf(context.weatherSummary.nearestWinterStormAlert.phenomenaCode) !== -1 &&\n    ((context.weatherSummary.nearestWinterStormAlert.significanceCode == \"A\") || \n    (context.weatherSummary.nearestWinterStormAlert.significanceCode == \"S\") || \n    ((context.weatherSummary.nearestSnowAccumulation !== null) && \n    (context.weatherSummary.nearestWinterStormAlert.significanceCode == \"W\") &&\n    (context.weatherSummary.nearestSnowAccumulation.snowRange !== null) &&\n    (context.weatherSummary.nearestSnowAccumulation.snowRange !== \"0\")))\n}\n\nisStormForecast()"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "a4b41489-cef2-42c2-b140-e732d06e384b"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\n\t\t\"descriptor\":translate(\"DDI.RoadConditions\"),\n        \"value\" : translate(\"DDI.Windy\")\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "WINDY",
+                    "namespace": "headsupRoadConditions",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": "context.weatherSummary.lifeStyleIndices.drivingDifficultyIndex==1"
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "90c375be-5da5-4826-9cb2-9fad9f359bfe"
+                  },
+                  {
+                    "configuration": "{\n\t\"descriptor\":translate(\"DDI.RoadConditions\"),\n    \"value\" : translate(\"DDI.Foggy\")\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "FOGGY",
+                    "namespace": "headsupRoadConditions",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": "context.weatherSummary.lifeStyleIndices.drivingDifficultyIndex==2"
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "40ed3acf-4e8a-4c6d-97a7-5f9538a619eb"
+                  },
+                  {
+                    "configuration": "{\n\t\"descriptor\":translate(\"DDI.RoadConditions\"),\n    \"value\" : translate(\"DDI.Wet\")\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "WET",
+                    "namespace": "headsupRoadConditions",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": "context.weatherSummary.lifeStyleIndices.drivingDifficultyIndex==3"
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "6aa9295c-5536-45a9-abb8-9df383a05f27"
+                  },
+                  {
+                    "configuration": "{\n\t\"descriptor\":translate(\"DDI.RoadConditions\"),\n    \"value\" : translate(\"DDI.Ponding\")\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "PONDING",
+                    "namespace": "headsupRoadConditions",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": "context.weatherSummary.lifeStyleIndices.drivingDifficultyIndex==4"
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "191e0055-de8a-451d-98bf-e2f9f228daf5"
+                  },
+                  {
+                    "configuration": "{\n\t\"descriptor\":translate(\"DDI.RoadConditions\"),\n    \"value\" : translate(\"DDI.Snowy\")\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "SNOWY",
+                    "namespace": "headsupRoadConditions",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": "context.weatherSummary.lifeStyleIndices.drivingDifficultyIndex==5"
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "6ff741bf-c728-4f3b-88da-c44e1bfb90a9"
+                  },
+                  {
+                    "configuration": "{\n\t\"descriptor\":translate(\"DDI.RoadConditions\"),\n    \"value\" : translate(\"DDI.Icy\")\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "ICY",
+                    "namespace": "headsupRoadConditions",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": "context.weatherSummary.lifeStyleIndices.drivingDifficultyIndex==6"
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "e95d7aeb-3f3e-4fbe-be5b-1133988fad28"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"value\":\"GOOD\",\n\t\"descriptor\":\"ROAD CONDITIONS\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"driving_condition\"\n\t},\n\t\"icon\":{\n\t\t\"resourceName\":\"home_car_icon\"\n\t}\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Road Conditions",
+                "namespace": "headsup",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.weatherSummary.lifeStyleIndices!==null && \ncontext.weatherSummary.lifeStyleIndices.drivingDifficultyIndex>0"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "fdc9f021-0bee-45fc-811e-f19422278c9a"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\t\n\t\"descriptor\": translate(\"General.FeelsLike\"),\n\t\"value\": context.weatherSummary.observation.feelsLikeTemperature + \"\\u00B0\"\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "Basic",
+                    "namespace": "headsupFeelsLikeMessage",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "0eb87479-3780-4d10-9b27-be4935836c71"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"now\"\n\t},\n\t\"descriptor\":\"FEELS LIKE\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"ic_twc_temperature\"\n\t},\n\t\"analyticsTileName\":\"Feels Like\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Feels Like Message",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "Math.abs(context.weatherSummary.observation.feelsLikeTemperature - \ncontext.weatherSummary.observation.temperature) >= (inFahrenheit(5) -inFahrenheit(0))"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "91e9c16b-8088-47d9-bf60-760af585e723"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\n\t\t\n\t\t\n\t\"descriptor\": translate(\"General.Tomorrow\"),\n\t\t\n    \"clickthrough\":\n    {\n\t\t\t\t\n        \"selectedDayDate\":(new Date((new Date()).setDate((new Date()).getDate() +1))).toISOString()\n\t\n\t}\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "DEV",
+                      "QA"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "Basic",
+                    "namespace": "headsupTomorrowForecast",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "f0ec96b4-b503-4598-82f4-ca5029dc7563"
+                  },
+                  {
+                    "configurationRules": [
+                      {
+                        "configuration": "{\r\n\t\t\r\n\t\"value\": translate(\"HeadsUp.Rain\") + \" \" + context.weatherSummary.tomorrowForecast.day.precipPercentage + \"%\",\r\n\t\t\r\n}\r\n",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "DEV",
+                          "QA"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Rain",
+                        "namespace": "headsupTomorrowForecast",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.tomorrowForecast !== null &&\r\ncontext.weatherSummary.tomorrowForecast.day !== null &&\r\ncontext.weatherSummary.tomorrowForecast.day.precipPercentage >= 30 &&\r\ncontext.weatherSummary.tomorrowForecast.day.precipType.toLowerCase() == \"rain\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "cd0441e6-49de-44e5-9a47-8706174f1ee2"
+                      },
+                      {
+                        "configuration": "{\r\n\t\t\r\n\t\"value\": translate(\"HeadsUp.Snow\") + \" \" + context.weatherSummary.tomorrowForecast.day.precipPercentage + \"%\",\r\n\t\t\r\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "DEV",
+                          "QA"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Snow",
+                        "namespace": "headsupTomorrowForecast",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.tomorrowForecast !== null &&\r\ncontext.weatherSummary.tomorrowForecast.day !== null &&\r\ncontext.weatherSummary.tomorrowForecast.day.precipPercentage >= 30 &&\r\ncontext.weatherSummary.tomorrowForecast.day.precipType.toLowerCase() == \"snow\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "7b6e883c-907f-4558-9c2e-9a304ffe53f6"
+                      },
+                      {
+                        "configuration": "{\r\n\t\t\r\n\t\"value\": translate(\"HeadsUp.Mix\") + \" \" + context.weatherSummary.tomorrowForecast.day.precipPercentage + \"%\",\r\n\t\t\r\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "DEV",
+                          "QA"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Mix",
+                        "namespace": "headsupTomorrowForecast",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.tomorrowForecast !== null &&\r\ncontext.weatherSummary.tomorrowForecast.day !== null &&\r\ncontext.weatherSummary.tomorrowForecast.day.precipPercentage >= 30 &&\r\ncontext.weatherSummary.tomorrowForecast.day.precipType.toLowerCase() == \"mix\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "33860f26-f8d8-4430-9ed7-089198557aa2"
+                      },
+                      {
+                        "configuration": "{\t\n\t\t\n\t\"descriptor\": translate(\"General.Tomorrow\"),\t\n\t\"value\": context.weatherSummary.tomorrowForecast.day.precipType.toUpperCase() + \" \" + context.weatherSummary.tomorrowForecast.day.precipPercentage + \"%\",\n\t\t\n    \"clickthrough\":\n    {\t\t\n\t\t\t\t\n        \"selectedDayDate\":(new Date((new Date()).setDate((new Date()).getDate() +1))).toISOString()\n    \n\t\n\t\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": false,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Precip",
+                        "namespace": "headsupTomorrowForecast",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.tomorrowForecast.day.precipPercentage >= 30"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "bab77169-7e86-47ba-920d-e605e4812e86"
+                      },
+                      {
+                        "configuration": "{\t\n\t\"value\":translate(\"HeadsUp.Clear\"),\t\n\t\"clickthrough\":{\t\t\n\t\t \"selectedDayDate\":(new Date((new Date()).setDate((new Date()).getDate() +1))).toISOString()\n\t\n\t}\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Clear",
+                        "namespace": "headsupTomorrowForecast",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.tomorrowForecast.day.precipPercentage == 0"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "c7badf19-6bf5-447c-a6fa-af757ada8303"
+                      }
+                    ],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "643c207f-35f0-4b59-8717-eee97109321c"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"fifteen_day\"\n\t},\n\t\"descriptor\":\"TOMORROW\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"home_tonight_tomorrow_icon\"\n\t},\n\t\"analyticsTileName\":\"Tomorrow's Forecast\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Tomorrow Forecast",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.weatherSummary.observation !== null &&\ncontext.weatherSummary.tomorrowForecast !== null &&\ncontext.weatherSummary.tomorrowForecast.day !== null &&\ngetTimeStr(context.weatherSummary.observation.obsTime) <= \"23:59\" && \ngetTimeStr(context.weatherSummary.observation.obsTime) >= \"18:00\" && \n(context.weatherSummary.tomorrowForecast.day.precipPercentage === 0 || \ncontext.weatherSummary.tomorrowForecast.day.precipPercentage >= 30)"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "9a2940b0-7b62-448e-a93a-65fc06207e18"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configuration": "{\n    \"descriptor\":translate(\"HeadsUp.LookAhead\"),\t\n\t\"value\":translate(\"HeadsUp.WeekendForecast\"),\t\n\t \"clickthrough\":\n    {\n        \"selectedDayDate\":(new Date((new Date()).setDate((new Date()).getDate() + (5 + 7 - (new Date()).getDay()) % 7))).toISOString()\n\t}\n}",
+                    "configurationRules": [],
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "2.5",
+                    "name": "Basic",
+                    "namespace": "headsupWeekendForecast",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 100,
+                    "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                    "rule": {
+                      "force": false,
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "type": "CONFIGURATION_RULE",
+                    "uniqueId": "6a68483a-26a8-4041-80de-6cf9dfdf134e"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"fifteen_day\"\n\t},\n\t\"descriptor\":\"LOOK AHEAD\",\n\t\"value\":\"WEEKEND\",\n\t\"icon\":{\n\t\t\"resourceName\":\"home_tonight_tomorrow_icon\"\n\t},\n\t\"analyticsTileName\":\"Weekend Forecast\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Weekend Forecast",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "function isWeekend() \r\n{ \r\n    var weekendSet = [3, 4, 5];\r\n\tday = new Date(context.weatherSummary.observation.obsTime.substring(0, 10)).getDay();\r\n\r\n    return weekendSet.indexOf(day) !== -1\r\n}\r\n\r\nisWeekend()"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "cf7c0653-b192-4a04-9eff-67fe6e08364d"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [
+                  {
+                    "configurationRules": [
+                      {
+                        "configuration": "{\t\n    \"descriptor\":translate(\"General.Sunrise\"),\n    \"value\": formatAMPM(context.weatherSummary.observation.nextSunrise)\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV",
+                          "SamsungDEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Sunrise",
+                        "namespace": "headsupSunriseSunsetMessage",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.observation.nextSunrise !== null && \ncontext.weatherSummary.observation.nextSunset !== null && \n(new Date(context.weatherSummary.observation.nextSunrise) < \n    new Date(context.weatherSummary.observation.nextSunset))"
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "61361126-4681-48ba-8c74-22e9a8a5dc22"
+                      },
+                      {
+                        "configuration": "{\t\n\t\t\n\t\"descriptor\":translate(\"General.Sunset\"),\t\n\t\t\n\t\"value\": formatAMPM(context.weatherSummary.observation.nextSunset)\n}",
+                        "configurationRules": [],
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV",
+                          "SamsungDEV"
+                        ],
+                        "minAppVersion": "2.5",
+                        "name": "Sunset",
+                        "namespace": "headsupSunriseSunsetMessage",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 100,
+                        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                        "rule": {
+                          "force": false,
+                          "ruleString": "context.weatherSummary.observation.nextSunset !== null && \ngetTimeStr(context.weatherSummary.observation.obsTime) >= \"11:00\""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "type": "CONFIGURATION_RULE",
+                        "uniqueId": "b82c736c-2540-4767-b203-d8b359de252f"
+                      }
+                    ],
+                    "maxFeaturesOn": 1,
+                    "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "518b4d07-a024-47f7-bdf7-71a11619a73a"
+                  }
+                ],
+                "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"now\"\n\t},\n\t\"descriptor\":\"SUNRISE\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"home_sunsrise_sunset_icon\"\n\t},\n\t\"analyticsTileName\":\"Sunset\/Sunrise\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Sunrise Sunset Message",
+                "namespace": "headsup",
+                "noCachedResults": true,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.weatherSummary.observation !== null &&\ncontext.weatherSummary.observation.nextSunset !== null &&\n((context.weatherSummary.observation.nextSunrise !== null && \n(new Date(context.weatherSummary.observation.nextSunrise) < \n    new Date(context.weatherSummary.observation.nextSunset))) || \ngetTimeStr(context.weatherSummary.observation.obsTime) >= \"11:00\")"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "b1a8858b-6eee-4b6b-bd02-4ca65aebc2a1"
+              }
+            ],
+            "maxFeaturesOn": 3,
+            "type": "MUTUAL_EXCLUSION_GROUP",
+            "uniqueId": "03d1dce7-cf65-4a04-aaa1-fe9a8d91ba99"
+          }
+        ],
+        "internalUserGroups": [
+          "QA",
+          "DEV"
+        ],
+        "minAppVersion": "2.5",
+        "name": "HeadsUp",
+        "namespace": "headsup",
+        "noCachedResults": true,
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": "true"
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "77060a9c-94fa-469d-8c2c-6a636c477b0b"
+      },
+      {
+        "additionalInfo": {},
+        "configurationRules": [],
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "displayName": null,
+        "enabled": true,
+        "features": [
+          {
+            "additionalInfo": {},
+            "configurationRules": [],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "displayName": null,
+            "enabled": true,
+            "features": [],
+            "internalUserGroups": [
+              "QA",
+              "DEV"
+            ],
+            "minAppVersion": "2.5",
+            "name": "Main Feed Ads",
+            "namespace": "ads",
+            "noCachedResults": false,
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": "false"
+            },
+            "stage": "DEVELOPMENT",
+            "type": "FEATURE",
+            "uniqueId": "0747eed1-a413-4c3a-908a-82a4d66dc340"
+          },
+          {
+            "additionalInfo": {},
+            "configurationRules": [],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "displayName": null,
+            "enabled": true,
+            "features": [],
+            "internalUserGroups": [
+              "QA",
+              "DEV"
+            ],
+            "minAppVersion": "2.5",
+            "name": "Main Screen Banner",
+            "namespace": "ads",
+            "noCachedResults": false,
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": "false"
+            },
+            "stage": "DEVELOPMENT",
+            "type": "FEATURE",
+            "uniqueId": "542382af-c52b-4c60-a92e-8fed788deef0"
+          }
+        ],
+        "internalUserGroups": [
+          "QA",
+          "DEV"
+        ],
+        "minAppVersion": "2.5",
+        "name": "Airlock Control Over Ads",
+        "namespace": "ads",
+        "noCachedResults": false,
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": ""
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "b4d3f570-daab-481c-a449-a0913e82dd9d"
+      },
+      {
+        "additionalInfo": {},
+        "configurationRules": [],
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "displayName": null,
+        "enabled": true,
+        "features": [
+          {
+            "features": [
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"breaking-news\",\n\t\"description\":\"Displays breaking news.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"weather.breaking\",\n\t\"beacon\":\"news:breaking:news:displayed\",\n\t\"adjacentAdParameters\":{\n\t\t\"fam\":\"sev\",\n\t\t\"ch\":\"bn\"\n\t}\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Breaking News",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.device.locale == \"en_US\" &&\n(context.weatherSummary.contentMode.mode == \"severe1\" ||\ncontext.weatherSummary.contentMode.mode == \"severe2\")"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "30e20a38-0489-4d06-aa9a-77195600a77a"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"current-conditions\",\n\t\"description\":\"Displays current conditions.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"weather.bb\",\n\t\"beacon\":\"weather:current:conditions:displayed\"\n}",
+                "defaultIfAirlockSystemIsDown": true,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Right Now",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": ""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "f329d0d2-61f0-4198-8913-09bb7ffb73c4"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"hourly\",\n\t\"description\":\"Displays hourly weather information.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"weather.hourly\",\n\t\"beacon\":\"weather:hourly:displayed\"\n}",
+                "defaultIfAirlockSystemIsDown": true,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Hourly",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": ""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "c3ed6e0f-7170-42c7-b8d1-9f90b92e8408"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"ten-day\",\n\t\"description\":\"Displays ten day forecast.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"weather.10day\",\n\t\"beacon\":\"weather:10-day:displayed\"\n}",
+                "defaultIfAirlockSystemIsDown": true,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Daily",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.device.locale == \"en_US\" || context.device.locale == \"de_DE\" || context.device.locale == \"es_US\""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "06fabee3-71f5-4a7e-938c-b717f3d4f4e2"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"video3\",\n\t\"description\":\"Displays video module with 3 thumbnails.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"\",\n\t\"beacon\":\"video:video:displayed\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Video",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.device.locale == \"en_US\" || context.device.locale == \"de_DE\" || context.device.locale == \"es_US\""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "cf6edac5-a9ff-4c2b-b377-0db0bec0adb5"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"map\",\n\t\"description\":\"Displays radar map.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"weather.maps\",\n\t\"beacon\":\"map:map:displayed\"\n}",
+                "defaultIfAirlockSystemIsDown": true,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Radar Maps",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": ""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "e72da7b4-e588-4d4e-97ce-40a673daadb7"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"driving-difficulty\",\n\t\"description\":\"Displays radar map.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"weather.maps\",\n\t\"beacon\":\"map:map:displayed\"\n}",
+                "defaultIfAirlockSystemIsDown": true,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Road Conditions",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": ""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "a324d989-ec1b-43e4-a440-ef50e3de65fe"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"news\",\n\t\"description\":\"Displays news.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"weather.articles\",\n\t\"beacon\":\"news:news:displayed\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "News",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.device.locale == \"en_US\" ||  context.device.locale == \"es_US\""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "9830dc54-28da-4842-84da-e24c6d0bc32f"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"health\",\n\t\"description\":\"Displays health information.\",\n\t\"type\":\"native\",\n\t\"adSlot\":\"\",\n\t\"beacon\":\"pollen:pollen:displayed\",\n\t\"adjacentAdParameters\":{\n\t\t\"fam\":\"hlth, allergy\",\n\t\t\"ch\":\"pollencast\"\n\t}\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Health",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context.viewedLocation.country == \"US\" && (context.device.locale == \"en_US\" ||  context.device.locale == \"es_US\")"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "70326e78-c6f8-4d56-ba7b-479eaa1ee511"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"outdoor\",\n\t\"description\":\"Displays run weather index information.\",\n\t\"type\":\"native\",\n\t\"hideable\":false,\n\t\"adSlot\":\"\",\n\t\"sponsored\":false\n}",
+                "defaultIfAirlockSystemIsDown": true,
+                "displayName": null,
+                "enabled": true,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Outdoor",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": ""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "339b815e-96c4-4023-ad43-e5b30a20bd40"
+              },
+              {
+                "additionalInfo": {},
+                "configurationRules": [],
+                "defaultConfiguration": "{\n\t\"id\":\"boat\",\n\t\"version\":\"1.0\",\n\t\"description\":\"Displays boat and beach information.\",\n\t\"type\":\"html\",\n\t\"hideable\":true,\n\t\"url\":\"\",\n\t\"adSlot\":\"\",\n\t\"sponsored\":false,\n\t\"beacon\":\"boatbeach:boatbeach-displayed\"\n}",
+                "defaultIfAirlockSystemIsDown": false,
+                "displayName": null,
+                "enabled": false,
+                "features": [],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "2.5",
+                "name": "Boat",
+                "namespace": "modules",
+                "noCachedResults": false,
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "false"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "FEATURE",
+                "uniqueId": "abc1c6e8-8098-4b4c-89c5-5f1e9e23597d"
+              }
+            ],
+            "maxFeaturesOn": 11,
+            "type": "MUTUAL_EXCLUSION_GROUP",
+            "uniqueId": "d45a73f7-bbca-41ed-bd52-36749b93308b"
+          }
+        ],
+        "internalUserGroups": [
+          "QA",
+          "DEV"
+        ],
+        "minAppVersion": "2.5",
+        "name": "Airlock Control Over Modules",
+        "namespace": "modules",
+        "noCachedResults": false,
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": ""
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "aad03913-308d-476d-b74e-ca4c4f66ce44"
+      },
+      {
+        "additionalInfo": {},
+        "configurationRules": [],
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "displayName": null,
+        "enabled": true,
+        "features": [
+          {
+            "additionalInfo": {},
+            "configurationRules": [],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "displayName": null,
+            "enabled": true,
+            "features": [],
+            "internalUserGroups": [
+              "DEV"
+            ],
+            "minAppVersion": "2.5",
+            "name": "Allergy",
+            "namespace": "bespoke",
+            "noCachedResults": false,
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": ""
+            },
+            "stage": "DEVELOPMENT",
+            "type": "FEATURE",
+            "uniqueId": "7204bf17-c609-49de-845a-cabd6be11e93"
+          },
+          {
+            "additionalInfo": {},
+            "configurationRules": [],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "displayName": null,
+            "enabled": true,
+            "features": [],
+            "internalUserGroups": [
+              "DEV"
+            ],
+            "minAppVersion": "2.5",
+            "name": "ColdFlu",
+            "namespace": "bespoke",
+            "noCachedResults": false,
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": "context.viewedLocation.country && context.viewedLocation.country.toLowerCase() == 'us' "
+            },
+            "stage": "DEVELOPMENT",
+            "type": "FEATURE",
+            "uniqueId": "bd78e0fd-e856-4f15-9f46-f92c3a4a273a"
+          }
+        ],
+        "internalUserGroups": [
+          "DEV"
+        ],
+        "minAppVersion": "2.5",
+        "name": "HealthSubmodules",
+        "namespace": "bespoke",
+        "noCachedResults": false,
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": ""
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "3370d6b5-5a0f-4559-95e8-036cee3614bb"
+      },
+      {
+        "additionalInfo": {},
+        "configurationRules": [],
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "displayName": null,
+        "enabled": true,
+        "features": [
+          {
+            "additionalInfo": {},
+            "configurationRules": [],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "displayName": null,
+            "enabled": true,
+            "features": [],
+            "internalUserGroups": [
+              "DEV"
+            ],
+            "minAppVersion": "2.5",
+            "name": "ViewedCountryUS",
+            "namespace": "sample",
+            "noCachedResults": false,
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": "context.viewedLocation.country && context.viewedLocation.country.toLowerCase() == 'us' "
+            },
+            "stage": "DEVELOPMENT",
+            "type": "FEATURE",
+            "uniqueId": "7aeec442-c568-4558-accb-4bdea5a2b26e"
+          },
+          {
+            "additionalInfo": {},
+            "configurationRules": [],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "displayName": null,
+            "enabled": true,
+            "features": [],
+            "internalUserGroups": [
+              "DEV"
+            ],
+            "minAppVersion": "2.5",
+            "name": "ViewedCountryNonUS",
+            "namespace": "sample",
+            "noCachedResults": false,
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": "context.viewedLocation.country && context.viewedLocation.country.toLowerCase() != 'us' "
+            },
+            "stage": "DEVELOPMENT",
+            "type": "FEATURE",
+            "uniqueId": "bede048b-5388-4666-9cda-b4efbd33386a"
+          },
+          {
+            "additionalInfo": {},
+            "configurationRules": [],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "displayName": null,
+            "enabled": true,
+            "features": [],
+            "internalUserGroups": [
+              "DEV"
+            ],
+            "minAppVersion": "2.5",
+            "name": "ConnectionTypeWiFi",
+            "namespace": "sample",
+            "noCachedResults": false,
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": "context.device.connectionType && context.device.connectionType.toLowerCase() == 'wifi' "
+            },
+            "stage": "DEVELOPMENT",
+            "type": "FEATURE",
+            "uniqueId": "3afc1025-db29-4d24-8a51-ee5077c51a39"
+          },
+          {
+            "additionalInfo": {},
+            "configurationRules": [],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "displayName": null,
+            "enabled": true,
+            "features": [],
+            "internalUserGroups": [
+              "DEV"
+            ],
+            "minAppVersion": "2.5",
+            "name": "ConnectionType4G",
+            "namespace": "sample",
+            "noCachedResults": false,
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": "context.device.connectionType && context.device.connectionType.toLowerCase() == '4g' "
+            },
+            "stage": "DEVELOPMENT",
+            "type": "FEATURE",
+            "uniqueId": "e52ce676-ba19-495a-8256-83aaa29cf0cd"
+          }
+        ],
+        "internalUserGroups": [
+          "DEV"
+        ],
+        "minAppVersion": "2.5",
+        "name": "Common",
+        "namespace": "sample",
+        "noCachedResults": false,
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": ""
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "12d9e392-6d00-4e4c-b1b3-5df17560576c"
+      }
+    ],
+    "type": "ROOT",
+    "uniqueId": "ab45ddc3-4cba-4ba4-af3e-e00f1c2d9855"
+  },
+  "seasonId": "1651e4fc-b91f-4bf5-9e92-204fdbf560f1",
+  "version": "V2"
+}

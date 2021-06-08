@@ -1,0 +1,445 @@
+{
+  "branches": [
+  ],
+  "defaultLanguage": "en",
+  "devS3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/iritRuntime\/",
+  "experiments": {
+    "experiments": [
+    ],
+    "maxExperimentsOn": 1
+  },
+  "inputFieldsForAnalytics": [
+  ],
+  "maxVersion": null,
+  "minVersion": "0.8",
+  "productId": "3024ba3e-7715-4a4b-81a8-1249a1d736c5",
+  "productName": "ASLWFKKT",
+  "entitlementsRoot": {
+    "branchStatus": "NONE",
+    "entitlements": [
+      {
+        "additionalInfo": {
+          "aaa": "bbb"
+        },
+        "branchStatus": "NONE",
+        "configurationRules": [
+        ],
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "enabled": true,
+        "entitlements": [
+          {
+            "additionalInfo": {
+              "aaa": "bbb"
+            },
+            "branchStatus": "NONE",
+            "configurationRules": [
+            ],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "enabled": true,
+            "entitlements": [
+            ],
+            "includedEntitlements": [
+            ],
+            "internalUserGroups": [
+              "QA",
+              "DEV"
+            ],
+            "minAppVersion": "0.1",
+            "name": "inAppPurchase3",
+            "namespace": "ns1",
+            "noCachedResults": false,
+            "purchaseOptions": [
+            ],
+            "rolloutPercentage": 100.0,
+            "rule": {
+              "ruleString": ""
+            },
+            "stage": "DEVELOPMENT",
+            "type": "ENTITLEMENT",
+            "uniqueId": "29a46366-3364-469b-8cae-6df735c6c783"
+          }
+        ],
+        "includedEntitlements": [
+        ],
+        "internalUserGroups": [
+          "QA",
+          "DEV"
+        ],
+        "minAppVersion": "0.1",
+        "name": "inAppPurchase1",
+        "namespace": "ns1",
+        "noCachedResults": false,
+        "purchaseOptions": [
+          {
+            "additionalInfo": {
+              "aaa": "bbb"
+            },
+            "branchStatus": "NONE",
+            "configurationRules": [
+            ],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "enabled": true,
+            "internalUserGroups": [
+              "QA",
+              "DEV"
+            ],
+            "minAppVersion": "0.1",
+            "name": "ZLbjM",
+            "namespace": "ns1",
+            "noCachedResults": false,
+            "rolloutPercentage": 10.0,
+            "rule": {
+              "ruleString": ""
+            },
+            "stage": "DEVELOPMENT",
+            "storeProductIds": [
+              {
+                "productId": "free.ads",
+                "storeType": "iosStore"
+              },
+              {
+                "productId": "free.ads",
+                "storeType": "androidStore"
+              }
+            ],
+            "type": "PURCHASE_OPTIONS",
+            "uniqueId": "9bd1a47d-3dba-4cf7-8b4f-8ec70a2f5918"
+          }
+        ],
+        "rolloutPercentage": 10.0,
+        "rule": {
+          "ruleString": ""
+        },
+        "stage": "DEVELOPMENT",
+        "type": "ENTITLEMENT",
+        "uniqueId": "fcc29024-9dbd-4ca6-8803-86897e9b713f"
+      },
+      {
+        "branchStatus": "NONE",
+        "entitlements": [
+          {
+            "additionalInfo": {
+              "aaa": "bbb"
+            },
+            "branchStatus": "NONE",
+            "configurationRules": [
+            ],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "enabled": true,
+            "entitlements": [
+            ],
+            "includedEntitlements": [
+            ],
+            "internalUserGroups": [
+              "QA",
+              "DEV"
+            ],
+            "minAppVersion": "0.1",
+            "name": "inAppPurchase2",
+            "namespace": "ns1",
+            "noCachedResults": false,
+            "purchaseOptions": [
+              {
+                "branchStatus": "NONE",
+                "maxFeaturesOn": 2,
+                "purchaseOptions": [
+                  {
+                    "additionalInfo": {
+                      "aaa": "bbb"
+                    },
+                    "branchStatus": "NONE",
+                    "configurationRules": [
+                    ],
+                    "defaultConfiguration": null,
+                    "defaultIfAirlockSystemIsDown": false,
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "0.1",
+                    "name": "MNDYD",
+                    "namespace": "ns1",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 10.0,
+                    "rule": {
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "storeProductIds": [
+                    ],
+                    "type": "PURCHASE_OPTIONS",
+                    "uniqueId": "51a39444-2663-4682-9793-f18f21b8ae21"
+                  },
+                  {
+                    "additionalInfo": {
+                      "aaa": "bbb"
+                    },
+                    "branchStatus": "NONE",
+                    "configurationRules": [
+                    ],
+                    "defaultConfiguration": null,
+                    "defaultIfAirlockSystemIsDown": false,
+                    "enabled": true,
+                    "internalUserGroups": [
+                      "QA",
+                      "DEV"
+                    ],
+                    "minAppVersion": "0.1",
+                    "name": "bogjy",
+                    "namespace": "ns1",
+                    "noCachedResults": false,
+                    "rolloutPercentage": 10.0,
+                    "rule": {
+                      "ruleString": ""
+                    },
+                    "stage": "DEVELOPMENT",
+                    "storeProductIds": [
+                    ],
+                    "type": "PURCHASE_OPTIONS",
+                    "uniqueId": "d08e3a4a-e637-47cd-8fae-e6ba62008d6e"
+                  },
+                  {
+                    "branchStatus": "NONE",
+                    "maxFeaturesOn": 2,
+                    "purchaseOptions": [
+                      {
+                        "additionalInfo": {
+                          "aaa": "bbb"
+                        },
+                        "branchStatus": "NONE",
+                        "configurationRules": [
+                        ],
+                        "defaultConfiguration": null,
+                        "defaultIfAirlockSystemIsDown": false,
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "0.1",
+                        "name": "nVFYu",
+                        "namespace": "ns1",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 10.0,
+                        "rule": {
+                          "ruleString": ""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "storeProductIds": [
+                        ],
+                        "type": "PURCHASE_OPTIONS",
+                        "uniqueId": "a0bb0a2e-4923-4ed3-84be-48375c47ca5d"
+                      },
+                      {
+                        "additionalInfo": {
+                          "aaa": "bbb"
+                        },
+                        "branchStatus": "NONE",
+                        "configurationRules": [
+                        ],
+                        "defaultConfiguration": null,
+                        "defaultIfAirlockSystemIsDown": false,
+                        "enabled": true,
+                        "internalUserGroups": [
+                          "QA",
+                          "DEV"
+                        ],
+                        "minAppVersion": "0.1",
+                        "name": "Txurp",
+                        "namespace": "ns1",
+                        "noCachedResults": false,
+                        "rolloutPercentage": 10.0,
+                        "rule": {
+                          "ruleString": ""
+                        },
+                        "stage": "DEVELOPMENT",
+                        "storeProductIds": [
+                        ],
+                        "type": "PURCHASE_OPTIONS",
+                        "uniqueId": "168de148-2fbc-40de-8554-4f1f3d084d50"
+                      }
+                    ],
+                    "type": "PURCHASE_OPTIONS_MUTUAL_EXCLUSION_GROUP",
+                    "uniqueId": "b46e07dc-a3e7-4285-9bd5-99e7998bf5cd"
+                  }
+                ],
+                "type": "PURCHASE_OPTIONS_MUTUAL_EXCLUSION_GROUP",
+                "uniqueId": "c07e6c48-3a36-4628-bca6-0cd60590d0dd"
+              }
+            ],
+            "rolloutPercentage": 50.0,
+            "rule": {
+              "ruleString": ""
+            },
+            "stage": "DEVELOPMENT",
+            "type": "ENTITLEMENT",
+            "uniqueId": "5120d3a5-4959-441a-862e-b76f860f16e4"
+          },
+          {
+            "additionalInfo": {
+              "aaa": "bbb"
+            },
+            "branchStatus": "NONE",
+            "configurationRules": [
+            ],
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "enabled": true,
+            "entitlements": [
+            ],
+            "includedEntitlements": [
+              "ns1.inAppPurchase1",
+              "ns1.inAppPurchase2"
+            ],
+            "internalUserGroups": [
+              "QA",
+              "DEV"
+            ],
+            "minAppVersion": "0.1",
+            "name": "bundle",
+            "namespace": "ns1",
+            "noCachedResults": false,
+            "purchaseOptions": [
+            ],
+            "rolloutPercentage": 50.0,
+            "rule": {
+              "ruleString": ""
+            },
+            "stage": "DEVELOPMENT",
+            "type": "ENTITLEMENT",
+            "uniqueId": "e2c305de-ad98-4406-8106-ed126f21ac37"
+          },
+          {
+            "branchStatus": "NONE",
+            "entitlements": [
+              {
+                "additionalInfo": {
+                  "aaa": "bbb"
+                },
+                "branchStatus": "NONE",
+                "configurationRules": [
+                ],
+                "defaultConfiguration": null,
+                "defaultIfAirlockSystemIsDown": false,
+                "enabled": true,
+                "entitlements": [
+                ],
+                "includedEntitlements": [
+                ],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "0.1",
+                "name": "bjeGU",
+                "namespace": "ns1",
+                "noCachedResults": false,
+                "purchaseOptions": [
+                ],
+                "rolloutPercentage": 10.0,
+                "rule": {
+                  "ruleString": ""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "ENTITLEMENT",
+                "uniqueId": "5d4b34fe-3456-4867-8daa-c79bf66274d3"
+              },
+              {
+                "additionalInfo": {
+                  "aaa": "bbb"
+                },
+                "branchStatus": "NONE",
+                "configurationRules": [
+                ],
+                "defaultConfiguration": null,
+                "defaultIfAirlockSystemIsDown": false,
+                "enabled": true,
+                "entitlements": [
+                ],
+                "includedEntitlements": [
+                ],
+                "internalUserGroups": [
+                  "QA",
+                  "DEV"
+                ],
+                "minAppVersion": "0.1",
+                "name": "MCLFr",
+                "namespace": "ns1",
+                "noCachedResults": false,
+                "purchaseOptions": [
+                ],
+                "rolloutPercentage": 10.0,
+                "rule": {
+                  "ruleString": ""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "ENTITLEMENT",
+                "uniqueId": "dd880e89-e168-44d2-af36-e3a41ad429e9"
+              }
+            ],
+            "maxFeaturesOn": 1,
+            "type": "ENTITLEMENT_MUTUAL_EXCLUSION_GROUP",
+            "uniqueId": "e70ffcb7-9f8a-4de5-9dee-7b8d7f094cfe"
+          }
+        ],
+        "maxFeaturesOn": 1,
+        "type": "ENTITLEMENT_MUTUAL_EXCLUSION_GROUP",
+        "uniqueId": "69e93ae6-f258-46bf-9849-e93de0425374"
+      }
+    ],
+    "type": "ROOT",
+    "uniqueId": "96ae8cfe-09cd-4b16-a977-7ba10e68cace"
+  },
+  "root": {
+    "branchStatus": "NONE",
+    "features": [
+      {
+        "additionalInfo": {
+          "aaa": "bbb"
+        },
+        "branchStatus": "NONE",
+        "configurationRules": [
+        ],
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "enabled": true,
+        "features": [
+        ],
+        "entitlement": "ns1.inAppPurchase1",
+        "internalUserGroups": [
+          "QA",
+          "DEV"
+        ],
+        "minAppVersion": "0.1",
+        "name": "F1",
+        "namespace": "ns1",
+        "noCachedResults": false,
+        "orderingRules": [
+        ],
+        "premium": true,
+        "premiumRule": null,
+        "rolloutPercentage": 10.0,
+        "rule": {
+          "ruleString": "true"
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "b2f3c007-fb37-4a2b-b552-a8aa60730faa"
+      }
+    ],
+    "type": "ROOT",
+    "uniqueId": "19743ca6-341c-4dca-858d-7f099915e44d"
+  },
+  "s3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/iritRuntime\/",
+  "seasonId": "422b65f8-9c3d-4d30-aef0-740883cbd845",
+  "serverVersion": "V5.5",
+  "supportedLanguages": [
+    "en"
+  ],
+  "version": "V2.5"
+}

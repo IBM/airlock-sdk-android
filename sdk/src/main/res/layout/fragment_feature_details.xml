@@ -1,0 +1,508 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context="com.weather.airlock.sdk.ui.FeatureDetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/details_header_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/details_header_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="top"
+                android:paddingBottom="2dp"
+                android:text="Details"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#4963cd"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/details_header_divider"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/details_header_txt"
+                android:background="#4963cd" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/is_on_bar"
+
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/details_header_bar">
+
+            <TextView
+                android:id="@+id/is_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="10dp"
+                android:text="Is On:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/is_on_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:layout_marginEnd="48dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout android:id="@+id/is_premium_bar"
+
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_on_bar">
+
+            <TextView
+                android:id="@+id/is_premium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="10dp"
+                android:text="Is Premium:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/is_premium_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:layout_marginEnd="48dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/is_purchased_bar"
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_premium_bar">
+
+            <TextView
+                android:id="@+id/is_purchased"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="10dp"
+                android:text="Is Purchased:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/is_purchased_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:layout_marginEnd="48dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/source_bar"
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/is_purchased_bar">
+
+            <TextView
+                android:id="@+id/source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:gravity="left"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Source:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/source_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:layout_marginEnd="49dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout android:id="@+id/children"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/source_bar"
+            android:weightSum="1">
+
+
+            <TextView
+                android:id="@+id/children_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.92"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Children:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+
+
+            <TextView
+                android:id="@+id/children_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignTop="@+id/show_children"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.07"
+                android:gravity="right"
+                android:text="3"
+                android:textAppearance="?android:textAppearanceSmall"></TextView>
+
+
+            <ImageView
+                android:id="@+id/show_children"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:src="@drawable/ic_keyboard_arrow_right_black" />
+
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/purchase_options"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/children"
+            android:weightSum="1"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/purchase_options_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.92"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Purchase Options:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+
+
+            <TextView
+                android:id="@+id/purchase_options_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignTop="@+id/show_children"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.07"
+                android:gravity="right"
+                android:text="3"
+                android:textAppearance="?android:textAppearanceSmall"></TextView>
+
+
+            <ImageView
+                android:id="@+id/show_purchase_options"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:src="@drawable/ic_keyboard_arrow_right_black" />
+
+        </LinearLayout>
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+            android:id="@+id/purchase_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/source_bar"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/choices_ids"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="top"
+                android:text="Product Ids:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/ids_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="top" />
+
+        </LinearLayout>
+
+        <RelativeLayout android:id="@+id/path_bar"
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/children">
+
+            <TextView
+                android:id="@+id/path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:paddingBottom="5dp"
+                android:gravity="top"
+                android:text="Path:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/path_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/path" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/trace_bar"
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/path_bar">
+
+            <TextView
+                android:id="@+id/trace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:paddingBottom="10dp"
+                android:text="Trace:"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/trace_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/trace"
+                android:gravity="top"
+                android:textIsSelectable="true"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/configuration_bar"
+
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trace_bar">
+
+            <TextView
+                android:id="@+id/configuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="top"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Configuration:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/configuration_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/configuration"
+                android:gravity="top"
+                android:textIsSelectable="true"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/percentage_header_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/configuration_bar">
+
+            <TextView
+                android:id="@+id/percentage_header_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="top"
+                android:paddingBottom="2dp"
+                android:paddingTop="10dp"
+                android:text="Percentage Control"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#4963cd"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/percentage_header_divider"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/percentage_header_txt"
+                android:background="#4963cd" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout android:id="@+id/percentage_bar"
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/percentage_header_bar">
+
+            <TextView
+                android:id="@+id/percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:gravity="left"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Feature Percentage:"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#000000" />
+
+            <Switch
+                android:id="@+id/percentage_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/purchase_header_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/percentage_bar"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/purchase_header_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="top"
+                android:paddingBottom="2dp"
+                android:paddingTop="10dp"
+                android:text="Purchase Control"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#4963cd"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/purchase_header_divider"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/purchase_header_txt"
+                android:background="#4963cd" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout android:id="@+id/purchase_bar_control"
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/purchase_header_bar"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/purchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:gravity="left"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Is Purchased:"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#000000" />
+
+            <Switch
+                android:id="@+id/purchase_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="right" />
+
+        </RelativeLayout>
+
+
+        <view
+            android:id="@+id/configuration_list"
+            class="com.weather.airlock.sdk.ui.FeatureDetailsFragment$NestedListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/percentage_bar"
+            android:divider="@null"
+            android:textIsSelectable="true"
+            android:dividerHeight="0dp"
+            android:scrollbars="none" />
+    </RelativeLayout>
+
+</ScrollView>

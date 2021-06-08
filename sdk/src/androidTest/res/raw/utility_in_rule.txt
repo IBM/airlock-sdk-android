@@ -1,0 +1,91 @@
+{
+	"defaultLanguage": "en",
+	"devS3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/DEVAUTH2\/",
+	"productId": "568ddbeb-7d0c-442c-9b65-dec2d9504862",
+	"productName": "UtilityInRule",
+	"root": {
+		"branchStatus": "NONE",
+		"features": [
+			{
+				"branchStatus": "NONE",
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "GlobalVarInRule",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "79c81237-bbe3-4590-8172-70b6da107260"
+			},
+			{
+				"branchStatus": "NONE",
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "LocalVarInRule",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "9a2853a6-33ba-435e-bd28-44ca654dc059"
+			},
+			{
+				"branchStatus": "NONE",
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "UtilityInRule",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "1bd711ac-b55e-4aeb-8c71-3a24e4fb0f3b"
+			},
+			{
+				"branchStatus": "NONE",
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "VarInUtility",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "c885976e-fabe-4cdb-9f33-881482a0de1b"
+			},
+			{
+				"branchStatus": "NONE",
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "ChangeVarInUtility",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "1bf5fde8-33c4-45df-9e74-7b85d76eb972"
+			},
+			{
+				"branchStatus": "NONE",
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "UseChangedVarInUtility",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "a621d920-e6f9-4e62-9002-e5eeee55fb72"
+			}
+		],
+		"type": "ROOT",
+		"uniqueId": "8ac36def-28bb-41ce-a378-46cd77c39d2b"
+	},
+	"s3Path": "https:\/\/airlockdev.s3-eu-west-1.amazonaws.com\/DEVAUTH2\/",
+	"seasonId": "90b0d000-30c9-4df0-942e-155653ca7dd5",
+	"supportedLanguages": [
+		"en"
+	],
+	"version": "V2.5"
+}

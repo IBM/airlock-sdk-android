@@ -1,0 +1,35 @@
+{
+	"seasonId": "fe26411e-fd45-4fc3-aef0-63dc154bc009",
+	"streams": [
+		{
+			"enabled": true,
+			"filter": "event.name === \"app-launch\"",
+			"internalUserGroups": [
+				"Adina"
+			],
+			"minAppVersion": "8",
+			"name": "appLaunchStream",
+			"processor": "if (events.length > 0){\n    result.lastDate = (new Date()).getTime();\n    if (cache.appLaunchCounter === undefined ){\n        cache.appLaunchCounter = 1;\n    }else{\n        cache.appLaunchCounter++;\n    }\n    result.appLaunchCounter = cache.appLaunchCounter;\n}",
+			"queueSizeKB": 1024,
+			"rolloutPercentage": 100.0,
+			"seasonId": "fe26411e-fd45-4fc3-aef0-63dc154bc009",
+			"stage": "DEVELOPMENT",
+			"uniqueId": "39d0059c-4344-49f1-9f82-0e1e18e5c92e"
+		},
+		{
+			"enabled": true,
+			"filter": "true",
+			"internalUserGroups": [
+				"Adina"
+			],
+			"minAppVersion": "8.0.0",
+			"name": "testStreamWithPercentage",
+			"processor": "false",
+			"queueSizeKB": 1024,
+			"rolloutPercentage": 1.0,
+			"seasonId": "fe26411e-fd45-4fc3-aef0-63dc154bc009",
+			"stage": "DEVELOPMENT",
+			"uniqueId": "1e93a56a-f66d-4b29-9d36-58b73feeb3ed"
+		}
+	]
+}

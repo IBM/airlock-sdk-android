@@ -1,0 +1,157 @@
+{
+  "defaultLanguage": "en",
+  "devS3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/TEST2\/",
+  "productId": "0dbc97c5-6003-49d4-b04a-7ca1b79636be",
+  "productName": "QA.Product",
+  "root": {
+    "features": [
+      {
+        "defaultConfiguration": "{\"a\":\"b\",\"h\" :{\"d\":\"g\"}}",
+        "defaultIfAirlockSystemIsDown": false,
+        "features": [
+          {
+            "defaultConfiguration": "{\"a\":\"ddddd\"}",
+            "defaultIfAirlockSystemIsDown": false,
+            "features": [
+            ],
+            "name": "f3",
+            "namespace": "ns",
+            "noCachedResults": false,
+            "type": "FEATURE",
+            "uniqueId": "f59a315d-236b-41c6-9f15-334bbeeb9ec9"
+          }
+        ],
+        "name": "parent",
+        "namespace": "ns",
+        "noCachedResults": false,
+        "type": "FEATURE",
+        "uniqueId": "10a27fc2-4b18-4637-b4c3-f5eb9be2a145"
+      },
+      {
+        "features": [
+          {
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "features": [
+            ],
+            "name": "f2",
+            "namespace": "ns",
+            "noCachedResults": false,
+            "type": "FEATURE",
+            "uniqueId": "741c6605-50a8-4ae0-ba0a-733c6e5425e1"
+          },
+          {
+            "defaultConfiguration": null,
+            "defaultIfAirlockSystemIsDown": false,
+            "features": [
+            ],
+            "name": "f1",
+            "namespace": "ns",
+            "noCachedResults": false,
+            "type": "FEATURE",
+            "uniqueId": "5c7654ed-5aed-4164-847a-1ae3f9b4e638"
+          }
+        ],
+        "maxFeaturesOn": 1,
+        "type": "MUTUAL_EXCLUSION_GROUP",
+        "uniqueId": "22ac2268-6191-441c-88d7-4cb192cdbae1"
+      },
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": true,
+        "features": [
+        ],
+        "name": "no.cache.f",
+        "namespace": "ns",
+        "noCachedResults": true,
+        "type": "FEATURE",
+        "uniqueId": "0c15149c-3da1-4498-878f-c2e8c59ea963"
+      },
+      {
+        "defaultConfiguration": "{\n\t\"tiletype\":\"datapoint\",\n\t\"clickthrough\":{\n\t\t\"destination\":\"now\"\n\t},\n\t\"descriptor\":\"SUNRISE\",\n\t\"value\":\"\",\n\t\"icon\":{\n\t\t\"resourceName\":\"home_sunsrise_sunset_icon\"\n\t},\n\t\"analyticsTileName\":\"Sunset\/Sunrise\"\n}",
+        "defaultIfAirlockSystemIsDown": true,
+        "features": [
+        ],
+        "name": "no.cache.f2",
+        "namespace": "ns",
+        "noCachedResults": false,
+        "type": "FEATURE",
+        "uniqueId": "d32a7e85-e301-4914-b356-79ed3bad4866"
+      },
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "features": [
+        ],
+        "name": "f8",
+        "namespace": "ns",
+        "noCachedResults": true,
+        "type": "FEATURE",
+        "uniqueId": "5007242b-16d8-4512-bf97-570b1ed77738"
+      },
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": true,
+        "features": [
+        ],
+        "name": "f9",
+        "namespace": "ns",
+        "noCachedResults": false,
+        "type": "FEATURE",
+        "uniqueId": "e31ac4ed-7ed2-49ef-8ee8-90509a4b7a66"
+      },
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": true,
+        "features": [
+        ],
+        "name": "f10",
+        "namespace": "ns",
+        "noCachedResults": true,
+        "type": "FEATURE",
+        "uniqueId": "a0f87a5e-fcf5-4de1-9079-2583c8afc0ca"
+      },
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": true,
+        "features": [
+        ],
+        "name": "f7",
+        "namespace": "ns",
+        "noCachedResults": true,
+        "type": "FEATURE",
+        "uniqueId": "d7a6927a-4c32-4b29-a7bb-ddd67c97f051"
+      },
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "features": [
+        ],
+        "name": "override.def.val",
+        "namespace": "ns",
+        "noCachedResults": true,
+        "type": "FEATURE",
+        "uniqueId": "6e9b0d47-3fd0-41ef-b10d-d4e067786519"
+      },
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": true,
+        "features": [
+        ],
+        "name": "onFeature",
+        "namespace": "ns",
+        "noCachedResults": false,
+        "type": "FEATURE",
+        "uniqueId": "3898ca33-7283-4dd6-80c3-f68286ee3a74"
+      }
+    ],
+    "type": "ROOT",
+    "uniqueId": "d5a5428f-86be-437c-a6ae-d3880c1d368c"
+  },
+  "s3Path": "https:\/\/airlockdev.s3-eu-west-1.amazonaws.com\/TEST2",
+  "seasonId": "406c342b-5f52-463f-a81b-516929bf66da",
+  "supportedLanguages": [
+    "en"
+  ],
+  "version": "V2.1"
+}

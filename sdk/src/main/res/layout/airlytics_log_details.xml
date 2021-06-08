@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:baselineAligned="false"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:paddingLeft="?android:attr/scrollbarSize"
+    android:paddingRight="?android:attr/scrollbarSize">
+
+
+    <TextView
+        android:id="@+id/envName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/airlytics_logs_list_header" />
+
+    <TextView
+        android:id="@+id/eventDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:paddingBottom="10dp"
+        android:textIsSelectable="true"
+        android:text="@string/airlytics_logs_list_header" />
+
+
+</LinearLayout>

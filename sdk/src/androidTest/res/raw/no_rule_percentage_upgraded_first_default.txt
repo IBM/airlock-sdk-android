@@ -1,0 +1,423 @@
+{
+	"defaultLanguage": "en",
+	"devS3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/TEST2\/",
+	"productId": "6426b205-577e-4171-a48f-2f4dc2039461",
+	"productName": "NoRulePercentageUpgraded",
+	"root": {
+		"features": [
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "R1 L1 100",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "ae4aed7c-1c82-42f7-8c96-7e5941db2bf0"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "R2 L1 60",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "a238da6a-f41f-458d-b48c-b4816120612d"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R32 L2 30",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "b26ae0ad-ecee-4dca-8ffb-194ee8c67a7e"
+							},
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R33 L2 10",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "cd4effbe-a606-4d05-b63e-b8b8c15b472f"
+							}
+						],
+						"name": "R31 L2 50",
+						"namespace": "ns1",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "44c1fb73-5cfe-47f9-a072-bc9560eac845"
+					}
+				],
+				"name": "R3 L1 80",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "0a3f4a89-f630-4277-8423-1100f49620c5"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"features": [
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R41 L2 30",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "2a12bcff-a4fd-40c0-9177-bab39860bdb9"
+							},
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R42 L2 20",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "3261d41b-a980-4d4f-8766-89ac7bd7dc19"
+							}
+						],
+						"maxFeaturesOn": 1,
+						"type": "MUTUAL_EXCLUSION_GROUP",
+						"uniqueId": "874b4b61-aebb-4e03-8c54-ce8d413a5ce0"
+					}
+				],
+				"name": "R4 L1 40",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "0eba46b2-3205-4f14-b4fe-8834bb56cccd"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+						],
+						"name": "R51 L2 40",
+						"namespace": "ns1",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "dc9cd95f-9376-41f4-a383-16f98c557eed"
+					},
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+							{
+								"features": [
+									{
+										"defaultConfiguration": null,
+										"defaultIfAirlockSystemIsDown": false,
+										"features": [
+										],
+										"name": "R521 L3 50",
+										"namespace": "ns1",
+										"noCachedResults": false,
+										"type": "FEATURE",
+										"uniqueId": "58aebe99-54f5-4401-abfc-0daab04f00e1"
+									},
+									{
+										"defaultConfiguration": null,
+										"defaultIfAirlockSystemIsDown": false,
+										"features": [
+										],
+										"name": "R522 L3 100",
+										"namespace": "ns1",
+										"noCachedResults": false,
+										"type": "FEATURE",
+										"uniqueId": "ab28dbd4-f257-41b7-b6c8-23b1a6f226c5"
+									},
+									{
+										"defaultConfiguration": null,
+										"defaultIfAirlockSystemIsDown": false,
+										"features": [
+										],
+										"name": "R523 L3 20",
+										"namespace": "ns1",
+										"noCachedResults": false,
+										"type": "FEATURE",
+										"uniqueId": "715267f2-e992-4bb8-a61e-47425b518712"
+									}
+								],
+								"maxFeaturesOn": 1,
+								"type": "MUTUAL_EXCLUSION_GROUP",
+								"uniqueId": "de858467-9674-4a3c-9c50-ac0b79456eb5"
+							}
+						],
+						"name": "R52 L2 40",
+						"namespace": "ns1",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "f1676edc-1e6a-4009-ac17-df04a501e1f0"
+					}
+				],
+				"name": "R5 L1 50",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "95bd6055-faa2-4866-9788-efccfab0d95a"
+			},
+			{
+				"features": [
+				],
+				"maxFeaturesOn": 1,
+				"type": "MUTUAL_EXCLUSION_GROUP",
+				"uniqueId": "8b1063e8-9a98-49b8-9554-92d7550770da"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "R1 0",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "61fb5493-ad9c-4305-ae90-608bacb8ea4c"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"features": [
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R2b 0",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "ce12708e-6770-44a7-ba9d-17ca87e82169"
+							},
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R2a 0",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "819b48b1-60cb-4d15-a7e0-22b7d4b50c8a"
+							}
+						],
+						"maxFeaturesOn": 1,
+						"type": "MUTUAL_EXCLUSION_GROUP",
+						"uniqueId": "bd59c24c-1c8f-4917-8cea-420a8dbcb1bc"
+					}
+				],
+				"name": "R2 0",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "01ad1c8c-1725-465e-9a05-c922132c933a"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"features": [
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R3a 0",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "8a36a136-356f-447c-9d23-c598d3045e0c"
+							},
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R3b 0",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "c80ccbd2-7511-4d1b-abb8-196e9ee27adc"
+							}
+						],
+						"maxFeaturesOn": 1,
+						"type": "MUTUAL_EXCLUSION_GROUP",
+						"uniqueId": "cb50859b-da6f-4c41-b834-7662ea682553"
+					}
+				],
+				"name": "R3 0",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "df7f7ea0-e4e9-4a75-a318-17629d7498fa"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "New Feature1",
+				"namespace": "new",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "925dd4c1-a63d-4b04-9039-c75ddf9c9d36"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+						],
+						"name": "R51 L2 40 New",
+						"namespace": "ns1",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "16c58675-8f28-4301-b6f9-1387ee04b04e"
+					},
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+							{
+								"features": [
+									{
+										"defaultConfiguration": null,
+										"defaultIfAirlockSystemIsDown": false,
+										"features": [
+										],
+										"name": "R521 L3 50 New",
+										"namespace": "ns1",
+										"noCachedResults": false,
+										"type": "FEATURE",
+										"uniqueId": "7b4f51f5-ceda-4e00-a5f6-06b7227f4cb9"
+									},
+									{
+										"defaultConfiguration": null,
+										"defaultIfAirlockSystemIsDown": false,
+										"features": [
+										],
+										"name": "R522 L3 100 New",
+										"namespace": "ns1",
+										"noCachedResults": false,
+										"type": "FEATURE",
+										"uniqueId": "70771d9f-ccbe-4603-ab55-2eb590a0a5e2"
+									},
+									{
+										"defaultConfiguration": null,
+										"defaultIfAirlockSystemIsDown": false,
+										"features": [
+										],
+										"name": "R523 L3 20 New",
+										"namespace": "ns1",
+										"noCachedResults": false,
+										"type": "FEATURE",
+										"uniqueId": "3478c31d-af24-4b2d-9bbf-abdad8062b44"
+									}
+								],
+								"maxFeaturesOn": 1,
+								"type": "MUTUAL_EXCLUSION_GROUP",
+								"uniqueId": "4227693a-7485-49e3-9a19-7994fa739e19"
+							}
+						],
+						"name": "R52 L2 40 New",
+						"namespace": "ns1",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "5d2fd419-d126-42a4-99a4-6a12901d0c60"
+					}
+				],
+				"name": "R5 L1 50 New",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "f26b03d2-6382-4c85-a8e3-ab2f42e03f1f"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R32 L2 30 New",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "921ccd51-60cb-4160-bb5b-d81f104ac8e3"
+							},
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "R33 L2 10 New",
+								"namespace": "ns1",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "b54e780b-6a0d-4040-ae97-47da4706c99f"
+							}
+						],
+						"name": "R31 L2 50 New",
+						"namespace": "ns1",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "4569fe13-4bfb-408f-969c-5d8782ea0e05"
+					}
+				],
+				"name": "R3 L1 80 New",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "069f1234-ff5c-4940-b731-4a2d6fe22412"
+			}
+		],
+		"type": "ROOT",
+		"uniqueId": "0326bffb-5a78-416a-b1fa-d85a0150ce10"
+	},
+	"s3Path": "https:\/\/airlockdev.s3-eu-west-1.amazonaws.com\/TEST2",
+	"seasonId": "c92820c0-afc0-40c0-989c-322a60bf865a",
+	"supportedLanguages": [
+		"en"
+	],
+	"version": "V2.5"
+}

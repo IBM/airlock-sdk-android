@@ -1,0 +1,3 @@
+[submodule "airlock-sdk-common"]
+	path = airlock-sdk-common
+	url = https://github.com/IBM/airlock-sdk-common

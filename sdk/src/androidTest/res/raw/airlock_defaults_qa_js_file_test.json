@@ -1,0 +1,29 @@
+{
+  "defaultLanguage": "en",
+  "devS3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/TEST2\/",
+  "productId": "8ec78009-2ae8-415e-a99e-abe001e5f261",
+  "productName": "QA.JSFileTest",
+  "root": {
+    "features": [
+      {
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "features": [
+        ],
+        "name": "JSFileFeature",
+        "namespace": "ns",
+        "noCachedResults": false,
+        "type": "FEATURE",
+        "uniqueId": "2430d27d-490e-4b4b-8234-01a1c4a39b53"
+      }
+    ],
+    "type": "ROOT",
+    "uniqueId": "d81b3524-e684-4bb7-ad17-354645e99802"
+  },
+  "s3Path": "https:\/\/airlockdev.s3-eu-west-1.amazonaws.com\/TEST2",
+  "seasonId": "b28c1e28-e3c3-4639-8219-e3583def5ee4",
+  "supportedLanguages": [
+    "en"
+  ],
+  "version": "V2.5"
+}

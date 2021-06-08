@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+
+    <!-- it doesn't make sense to fail just because we don't use some alpha software -->
+    <issue id="NewerVersionAvailable" severity="ignore"/>
+
+    <issue id="Registered" >
+        <ignore path="src/com/weather/util/app/ErrorActivity.java" />
+    </issue>
+    <issue id="InvalidPackage">
+        <ignore path="**/okio-*.jar" />
+        <ignore path="**/rhino-*.jar" />
+        <ignore path="**/junit-*.jar" />
+    </issue>
+    <issue id="all">
+        <ignore path="**/layout/*.xml" />
+        <ignore path="**/androidTest/*.java" />
+        <ignore path="**/test/*.java" />
+        <ignore path="**/raw/*.json" />
+        <ignore path="**/raw/*.xml" />
+        <ignore path="**/drawable/*.*" />
+        <ignore path="**/values/*.*" />
+        <ignore path="**/menu/*.*" />
+    </issue>
+
+    <issue id="SetTextI18n">
+        <ignore path="**/com/weather/airlock/sdk/ui/*.java" />
+    </issue>
+    <issue id="ClickableViewAccessibility">
+        <ignore path="**/com/weather/airlock/sdk/ui/*.java"/>
+    </issue>
+</lint>

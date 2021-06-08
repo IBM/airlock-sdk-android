@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">airlock-sdk-android</string>
+    <string name="user_groups_activity_title">"User Groups"</string>
+    <string name="user_branches_activity_title">"Branches"</string>
+    <string name="user_streams_activity_title">"Streams"</string>
+    <string name="user_airlytics_activity_title">"Airlytics"</string>
+    <string name="user_notifications_activity_title">"Notifications"</string>
+    <string name="server_list_activity_title">"Servers"</string>
+    <string name="entitlements_list_activity_title">"Entitlements"</string>
+    <string name="airlock_features_activity_title">"Features"</string>
+    <string name="airlock_experiments_activity_title">"Experiments"</string>
+    <string name="airlock_purchases_activity_title">"Purchases"</string>
+    <string name="header">Select user groups for this device. Only features and configurations that are associated with the selected groups will be available
+        .</string>
+    <string name="branches_list_header">Select a branch for this device. A branch could override the airlock matser configuration. Click on button to clear branch selection.</string>
+    <string name="servers_header">Select the Airlock server that the device will be associated with by default.</string>
+    <string name="entitlements_list_header">Select an entitlement you want to debug</string>
+    <string name="streams_list_header">Select a streams you want to debug</string>
+    <string name="airlytics_envs_list_header">Select an environment you want to debug</string>
+    <string name="airlytics_logs_list_header">Select an event you want to see its details</string>
+    <string name="children_list_header">List of subfeatures in calculated order</string>
+    <string name="streams_trace_header">Streams Trace</string>
+    <string name="stream_event_header">Stream Events</string>
+    <string name="notifications_list_header">Select a notification you want to debug</string>
+    <string name="display">DISPLAY</string>
+    <string name="actions">ACTIONS</string>
+    <string name="products_header">Select the product that the device will be associated with by default.</string>
+    <string name="features_header">Select Airlock feature for debugging.</string>
+    <string name="feature_header">Feature Details:</string>
+
+    <!--errors-->
+    <string name="save_failed">Your selection could not be saved.</string>
+    <string name="retrieving_user_groups">Unable to retrieve user groups, url = %1$s</string>
+    <string name="retrieving_branches">Unable to retrieve branches list, url = %1$s</string>
+    <string name="retrieving_streams">Unable to retrieve streams list, url = %1$s</string>
+    <string name="retrieving_notifications">Unable to retrieve notifications list, url = %1$s</string>
+    <string name="retrieving_branch_error">Unable to retrieve the selected branch, url = %1$s</string>
+    <string name="streams_process_failed">Streams are not in the required JSON format.</string>
+    <string name="stream_not_available">Stream [%1$s] is not available. The remote configuration has to be retrieved before</string>
+    <string name="environment_not_available">Envirenment [%1$s] is not available. The remote configuration has to be retrieved before</string>
+    <string name="notification_not_available">Notification [%1$s] is not available. The remote configuration has to be retrieved before</string>
+    <string name="notification_process_failed">Notification are not in the required JSON format.</string>
+    <string name="user_groups_process_failed">User groups are not in the required JSON format.</string>
+    <string name="user_groups_reading_failed">Unable to read user groups from the device storage.</string>
+
+    <!--warnings-->
+    <string name="user_groups_is_empty"> Airlock user groups are not defined in the system.</string>
+    <string name="user_branches_is_empty">Airlock branches are not defined in the system.</string>
+    <string name="streams_is_empty">Airlock streams are not defined in the system.</string>
+    <string name="notifications_is_empty">Airlock notifications are not defined in the system.</string>
+    <string name="branch_is_empty">Airlock branch are not defined in the system.</string>
+
+    <string name="percentage_map_process_failed"> Unable to format feature percentage map due to JSONException</string>
+
+
+</resources>

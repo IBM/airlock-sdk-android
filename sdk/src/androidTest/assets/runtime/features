@@ -1,0 +1,598 @@
+{
+	"branches": [
+		{
+			"features": [
+			],
+			"inputFieldsForAnalytics": [
+			],
+			"name": "branch1",
+			"uniqueId": "71e147b0-6578-44c1-872c-505ed2aa545d"
+		}
+	],
+	"experiments": {
+		"experiments": [
+			{
+				"analytics": {
+					"featuresAndConfigurationsForAnalytics": [
+						"fsubSub.conf1",
+						"feature.featureBasedOnUserGroup",
+						"featuresub4.conf44",
+						"featuresubFeature3.conf1",
+						"feature.oredering2",
+						"feature.featueOnBasedContexed",
+						"sdk.sdkFeature",
+						"ft.featureInMx2",
+						"feature.sub4",
+						"ftfeatureInMx2.conf2",
+						"f.featureBasedOnProductContext"
+					],
+					"featuresAttributesForAnalytics": [
+						{
+							"attributes": [
+								"aa"
+							],
+							"name": "f.subSub"
+						}
+					],
+					"inputFieldsForAnalytics": [
+						"context.profile.demographics.firstName",
+						"context.profile.userId",
+						"context.app.campaign"
+					]
+				},
+				"controlGroupVariants": [
+				],
+				"enabled": true,
+				"indexExperiment": false,
+				"internalUserGroups": [
+					"Adina"
+				],
+				"maxVersion": null,
+				"minVersion": "8",
+				"name": "experiment1",
+				"owner": null,
+				"productId": "cdd52d55-df5d-4375-ac41-1086e4f1c7a3",
+				"ranges": [
+					{
+						"end": null,
+						"start": 1525164261705
+					}
+				],
+				"rolloutPercentage": 99.0,
+				"rule": {
+					"ruleString": "true"
+				},
+				"stage": "DEVELOPMENT",
+				"uniqueId": "3a4b3e47-51bc-4cd7-b51c-b9b36377e1a3",
+				"variants": [
+					{
+						"branchName": "branch1",
+						"enabled": true,
+						"experimentId": "3a4b3e47-51bc-4cd7-b51c-b9b36377e1a3",
+						"experimentName": "experiment1",
+						"internalUserGroups": [
+							"Adina"
+						],
+						"name": "variant1",
+						"rolloutPercentage": 99.0,
+						"rule": {
+							"ruleString": "true"
+						},
+						"stage": "DEVELOPMENT",
+						"uniqueId": "d777e598-e585-401e-a744-393e359bf068"
+					}
+				]
+			}
+		],
+		"maxExperimentsOn": 1
+	},
+	"inputFieldsForAnalytics": [
+		"context.app.campaign",
+		"context.profile.userId",
+		"context.profile.demographics.firstName"
+	],
+	"maxVersion": null,
+	"minVersion": "9",
+	"productId": "cdd52d55-df5d-4375-ac41-1086e4f1c7a3",
+	"root": {
+		"branchStatus": "NONE",
+		"features": [
+			{
+				"additionalInfo": {
+				},
+				"branchStatus": "NONE",
+				"configurationRules": [
+				],
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"enabled": true,
+				"features": [
+				],
+				"internalUserGroups": [
+				],
+				"minAppVersion": "8",
+				"name": "sdkFeature",
+				"namespace": "sdk",
+				"noCachedResults": false,
+				"orderingRules": [
+				],
+				"rolloutPercentage": 95.0,
+				"rule": {
+					"ruleString": ""
+				},
+				"sendToAnalytics": true,
+				"stage": "PRODUCTION",
+				"type": "FEATURE",
+				"uniqueId": "a6b7d521-c58f-44dc-9464-7901c199b1ec"
+			},
+			{
+				"branchStatus": "NONE",
+				"features": [
+					{
+						"additionalInfo": {
+						},
+						"branchStatus": "NONE",
+						"configurationRules": [
+						],
+						"defaultConfiguration": "{\n\t\"a\":\"dddd\"\n}",
+						"defaultIfAirlockSystemIsDown": false,
+						"enabled": true,
+						"features": [
+							{
+								"additionalInfo": {
+								},
+								"branchStatus": "NONE",
+								"configurationRules": [
+								],
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"enabled": true,
+								"features": [
+									{
+										"additionalInfo": {
+										},
+										"branchStatus": "NONE",
+										"configAttributesForAnalytics": [
+											"aa"
+										],
+										"configurationRules": [
+											{
+												"branchStatus": "NONE",
+												"configuration": "{\n\t\"aa\":\"bb\",\n\t\"cc\":\"dd\"\n}",
+												"configurationRules": [
+												],
+												"enabled": true,
+												"internalUserGroups": [
+													"Adina"
+												],
+												"minAppVersion": "8",
+												"name": "conf1",
+												"namespace": "fsubSub",
+												"noCachedResults": false,
+												"rolloutPercentage": 100.0,
+												"rule": {
+													"ruleString": "true"
+												},
+												"sendToAnalytics": true,
+												"stage": "DEVELOPMENT",
+												"type": "CONFIGURATION_RULE",
+												"uniqueId": "145414ad-2a95-4bd0-a3ce-8077d0d8d4c5"
+											}
+										],
+										"defaultConfiguration": null,
+										"defaultIfAirlockSystemIsDown": false,
+										"enabled": true,
+										"features": [
+										],
+										"internalUserGroups": [
+											"Adina"
+										],
+										"minAppVersion": "8",
+										"name": "subSub",
+										"namespace": "f",
+										"noCachedResults": false,
+										"orderingRules": [
+										],
+										"rolloutPercentage": 100.0,
+										"rule": {
+											"ruleString": "true"
+										},
+										"stage": "DEVELOPMENT",
+										"type": "FEATURE",
+										"uniqueId": "3135d235-a5cf-41b6-8ece-6e8429eccc97"
+									}
+								],
+								"internalUserGroups": [
+									"Adina"
+								],
+								"minAppVersion": "8",
+								"name": "subFeature",
+								"namespace": "f",
+								"noCachedResults": false,
+								"orderingRules": [
+								],
+								"rolloutPercentage": 100.0,
+								"rule": {
+									"ruleString": "true"
+								},
+								"stage": "DEVELOPMENT",
+								"type": "FEATURE",
+								"uniqueId": "bc17ced4-371c-4746-9eca-eb75797fa186"
+							}
+						],
+						"internalUserGroups": [
+							"Adina"
+						],
+						"minAppVersion": "9",
+						"name": "featureInMx1",
+						"namespace": "f",
+						"noCachedResults": false,
+						"orderingRules": [
+						],
+						"rolloutPercentage": 100.0,
+						"rule": {
+							"ruleString": ""
+						},
+						"stage": "DEVELOPMENT",
+						"type": "FEATURE",
+						"uniqueId": "16720cb1-cb54-4657-a188-740d5e412c3f"
+					},
+					{
+						"additionalInfo": {
+						},
+						"branchStatus": "NONE",
+						"configurationRules": [
+							{
+								"branchStatus": "NONE",
+								"configuration": "{\n\t\"bb\":\"xx\"\n}",
+								"configurationRules": [
+								],
+								"enabled": true,
+								"internalUserGroups": [
+									"Adina"
+								],
+								"minAppVersion": "8",
+								"name": "conf2",
+								"namespace": "ftfeatureInMx2",
+								"noCachedResults": false,
+								"rolloutPercentage": 100.0,
+								"rule": {
+									"ruleString": "true"
+								},
+								"sendToAnalytics": true,
+								"stage": "DEVELOPMENT",
+								"type": "CONFIGURATION_RULE",
+								"uniqueId": "9df3ba53-b1fc-4b0e-897a-4ecc771265ad"
+							}
+						],
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"enabled": true,
+						"features": [
+						],
+						"internalUserGroups": [
+							"Adina"
+						],
+						"minAppVersion": "9",
+						"name": "featureInMx2",
+						"namespace": "ft",
+						"noCachedResults": false,
+						"orderingRules": [
+						],
+						"rolloutPercentage": 100.0,
+						"rule": {
+							"ruleString": "true"
+						},
+						"sendToAnalytics": true,
+						"stage": "DEVELOPMENT",
+						"type": "FEATURE",
+						"uniqueId": "433fe784-3f44-4eaa-89b7-5674702d3383"
+					}
+				],
+				"maxFeaturesOn": 1,
+				"orderingRules": [
+					{
+						"branchStatus": "NONE",
+						"configuration": "{\"f.featureInMx1\":10,\"ft.featureInMx2\":5}",
+						"enabled": true,
+						"internalUserGroups": [
+							"Adina"
+						],
+						"minAppVersion": "8",
+						"name": "ordering1",
+						"namespace": "sdk",
+						"noCachedResults": false,
+						"orderingRules": [
+						],
+						"rolloutPercentage": 100.0,
+						"rule": {
+							"ruleString": "true"
+						},
+						"stage": "DEVELOPMENT",
+						"type": "ORDERING_RULE",
+						"uniqueId": "67feeeae-13ee-456a-808d-8a89ef513d50"
+					}
+				],
+				"type": "MUTUAL_EXCLUSION_GROUP",
+				"uniqueId": "262ab9a2-752d-40b8-af90-fd3210f26abb"
+			},
+			{
+				"additionalInfo": {
+				},
+				"branchStatus": "NONE",
+				"configurationRules": [
+				],
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"enabled": true,
+				"features": [
+					{
+						"additionalInfo": null,
+						"branchStatus": "NONE",
+						"configurationRules": [
+							{
+								"branchStatus": "NONE",
+								"configuration": "{}",
+								"configurationRules": [
+								],
+								"enabled": true,
+								"internalUserGroups": [
+								],
+								"minAppVersion": "8",
+								"name": "conf1",
+								"namespace": "featuresubFeature3",
+								"noCachedResults": false,
+								"rolloutPercentage": 100.0,
+								"rule": {
+									"ruleString": ""
+								},
+								"sendToAnalytics": true,
+								"stage": "DEVELOPMENT",
+								"type": "CONFIGURATION_RULE",
+								"uniqueId": "656ce69a-9c5c-4023-b671-28c33178b76d"
+							}
+						],
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"enabled": true,
+						"features": [
+						],
+						"internalUserGroups": [
+						],
+						"minAppVersion": "8",
+						"name": "subFeature3",
+						"namespace": "feature",
+						"noCachedResults": false,
+						"orderingRules": [
+						],
+						"rolloutPercentage": 100.0,
+						"rule": {
+							"ruleString": ""
+						},
+						"stage": "DEVELOPMENT",
+						"type": "FEATURE",
+						"uniqueId": "4e201694-fd5b-46ab-977b-17891d32286f"
+					}
+				],
+				"internalUserGroups": [
+				],
+				"minAppVersion": "9",
+				"name": "featueOnBasedContexed",
+				"namespace": "feature",
+				"noCachedResults": false,
+				"orderingRules": [
+				],
+				"rolloutPercentage": 100.0,
+				"rule": {
+					"ruleString": "context.device.screenWidth > 10"
+				},
+				"sendToAnalytics": true,
+				"stage": "PRODUCTION",
+				"type": "FEATURE",
+				"uniqueId": "4b9f3231-1760-45e8-a2f8-f490ef3a7ce8"
+			},
+			{
+				"additionalInfo": {
+				},
+				"branchStatus": "NONE",
+				"configurationRules": [
+				],
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"enabled": true,
+				"features": [
+					{
+						"branchStatus": "NONE",
+						"features": [
+							{
+								"additionalInfo": {
+								},
+								"branchStatus": "NONE",
+								"configurationRules": [
+									{
+										"branchStatus": "NONE",
+										"configuration": "{}",
+										"configurationRules": [
+										],
+										"enabled": true,
+										"internalUserGroups": [
+											"Adina"
+										],
+										"minAppVersion": "8",
+										"name": "conf44",
+										"namespace": "featuresub4",
+										"noCachedResults": false,
+										"rolloutPercentage": 100.0,
+										"rule": {
+											"ruleString": ""
+										},
+										"sendToAnalytics": true,
+										"stage": "DEVELOPMENT",
+										"type": "CONFIGURATION_RULE",
+										"uniqueId": "e402299d-09dc-4870-a4a6-47df61976fc2"
+									}
+								],
+								"defaultConfiguration": "{\n\t\"conf1\": \"confValue\"\n}",
+								"defaultIfAirlockSystemIsDown": false,
+								"enabled": true,
+								"features": [
+								],
+								"internalUserGroups": [
+									"Adina"
+								],
+								"minAppVersion": "8",
+								"name": "sub4",
+								"namespace": "feature",
+								"noCachedResults": false,
+								"orderingRules": [
+								],
+								"rolloutPercentage": 100.0,
+								"rule": {
+									"ruleString": "true"
+								},
+								"sendToAnalytics": true,
+								"stage": "DEVELOPMENT",
+								"type": "FEATURE",
+								"uniqueId": "80f927dd-66e9-42de-b44b-8a403e02e7c9"
+							},
+							{
+								"additionalInfo": {
+								},
+								"branchStatus": "NONE",
+								"configurationRules": [
+								],
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"enabled": true,
+								"features": [
+								],
+								"internalUserGroups": [
+									"Adina"
+								],
+								"minAppVersion": "8",
+								"name": "sub3",
+								"namespace": "feature",
+								"noCachedResults": false,
+								"orderingRules": [
+								],
+								"rolloutPercentage": 100.0,
+								"rule": {
+									"ruleString": "true"
+								},
+								"stage": "DEVELOPMENT",
+								"type": "FEATURE",
+								"uniqueId": "fe269b08-0c92-4d38-802f-03e7d1a950ea"
+							}
+						],
+						"maxFeaturesOn": 1,
+						"orderingRules": [
+							{
+								"branchStatus": "NONE",
+								"configuration": "{}",
+								"enabled": true,
+								"internalUserGroups": [
+									"Adina"
+								],
+								"minAppVersion": "8",
+								"name": "oredering2",
+								"namespace": "feature",
+								"noCachedResults": false,
+								"orderingRules": [
+								],
+								"rolloutPercentage": 100.0,
+								"rule": {
+									"ruleString": "true"
+								},
+								"sendToAnalytics": true,
+								"stage": "DEVELOPMENT",
+								"type": "ORDERING_RULE",
+								"uniqueId": "eeb8bb17-35bb-462d-9348-def850002415"
+							}
+						],
+						"type": "MUTUAL_EXCLUSION_GROUP",
+						"uniqueId": "48bcdc9e-2c99-47bc-8d72-bc8bc3800c27"
+					}
+				],
+				"internalUserGroups": [
+					"Adina"
+				],
+				"minAppVersion": "9",
+				"name": "featureBasedOnUserGroup",
+				"namespace": "feature",
+				"noCachedResults": false,
+				"orderingRules": [
+				],
+				"rolloutPercentage": 100.0,
+				"rule": {
+					"ruleString": ""
+				},
+				"sendToAnalytics": true,
+				"stage": "DEVELOPMENT",
+				"type": "FEATURE",
+				"uniqueId": "f8fcefac-dbf7-477c-90f5-b7fccfc6038f"
+			},
+			{
+				"additionalInfo": {
+				},
+				"branchStatus": "NONE",
+				"configurationRules": [
+				],
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"enabled": true,
+				"features": [
+				],
+				"internalUserGroups": [
+					"Adina"
+				],
+				"minAppVersion": "8",
+				"name": "featureBasedOnProductContext",
+				"namespace": "f",
+				"noCachedResults": false,
+				"orderingRules": [
+				],
+				"rolloutPercentage": 100.0,
+				"rule": {
+					"ruleString": "context.device.appFlavor == \"falvour1\""
+				},
+				"sendToAnalytics": true,
+				"stage": "DEVELOPMENT",
+				"type": "FEATURE",
+				"uniqueId": "254e1d35-094b-4acb-9ad9-ece602619ad3"
+			},
+			{
+				"additionalInfo": {
+				},
+				"branchStatus": "NONE",
+				"configurationRules": [
+				],
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"enabled": true,
+				"features": [
+				],
+				"internalUserGroups": [
+					"Adina"
+				],
+				"minAppVersion": "8",
+				"name": "featurewWith50Percentage",
+				"namespace": "sdk",
+				"noCachedResults": false,
+				"orderingRules": [
+				],
+				"rolloutPercentage": 45.0,
+				"rule": {
+					"ruleString": ""
+				},
+				"stage": "DEVELOPMENT",
+				"type": "FEATURE",
+				"uniqueId": "d3d441f9-83f3-4142-ae0d-f805afd880a4"
+			}
+		],
+		"type": "ROOT",
+		"uniqueId": "9187e207-b9a4-4b26-a7f4-54c90f605992"
+	},
+	"seasonId": "fe26411e-fd45-4fc3-aef0-63dc154bc009",
+	"serverVersion": "V4.5",
+	"version": "V2.5"
+}

@@ -1,0 +1,230 @@
+{
+	"defaultLanguage": "en",
+	"devS3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/DEVAUTH2\/",
+	"productId": "b2c04456-3969-467d-b6c0-5949b5361a4c",
+	"productName": "AnalyticsWithBranch",
+	"root": {
+		"features": [
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+						],
+						"name": "BigStates",
+						"namespace": "analytics",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "79dd224d-a343-4be9-b07b-24ff405b2200"
+					},
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+						],
+						"name": "WeatherData",
+						"namespace": "analytics",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "282c66a8-a0dc-41e8-8a54-49178a5a7945"
+					}
+				],
+				"name": "Rollout Beacon",
+				"namespace": "airlock",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "3b064bcb-a754-4080-9510-596465f44d8a"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+						],
+						"name": "Main Feed Ads",
+						"namespace": "ads",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "4aaf38a5-7a8b-4012-a8ef-8b7102d55b89"
+					},
+					{
+						"defaultConfiguration": null,
+						"defaultIfAirlockSystemIsDown": false,
+						"features": [
+						],
+						"name": "Main Screen Banner",
+						"namespace": "ads",
+						"noCachedResults": false,
+						"type": "FEATURE",
+						"uniqueId": "2f6a7453-4a9e-40e3-aa93-eaad765a6130"
+					}
+				],
+				"name": "Airlock Control Over Ads",
+				"namespace": "ads",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "c3fb3fa9-5e62-4a08-9a6b-ec6ed1eed3c5"
+			},
+			{
+				"defaultConfiguration": "{\n\t\"value\":\"defaultvalue\",\n\t\"dvalue1\":\"defaultvalue\",\n\t\"dvalue2\":\"defaultvalue\",\n\t\"dvalue3\":\"defaultvalue\"\n}",
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "MTXinMTXConfigsProdDefaultOff",
+				"namespace": "tr",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "6f11f88c-95eb-41fe-984c-56a9b81d6fbb"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "FeatureProdMTXConfigProdDev15",
+				"namespace": "group1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "fc204198-3ecc-4696-af76-7d40e245f62a"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"features": [
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "FeatureProdMTXDev12b",
+								"namespace": "tr",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "571701bd-2362-4517-abf7-621cb6f36f8f"
+							},
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "FeatureProdMTXProd12a",
+								"namespace": "tr",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "dc8581ea-e37a-4723-8a76-12c12558ebfa"
+							}
+						],
+						"maxFeaturesOn": 1,
+						"type": "MUTUAL_EXCLUSION_GROUP",
+						"uniqueId": "76c22732-3bf0-4484-a8c7-304194900c50"
+					}
+				],
+				"name": "FeatureProdMTXDevProd12",
+				"namespace": "tr",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "596f9c9b-ab33-42ce-9c62-ddc9103440b7"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+					{
+						"features": [
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "FeatureProdMTXProd11a",
+								"namespace": "tr",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "021c9c9e-46ab-46ee-a94a-700e2dfff456"
+							},
+							{
+								"defaultConfiguration": null,
+								"defaultIfAirlockSystemIsDown": false,
+								"features": [
+								],
+								"name": "FeatureProdMTXDev11b",
+								"namespace": "tr",
+								"noCachedResults": false,
+								"type": "FEATURE",
+								"uniqueId": "69a997d6-c025-4431-8577-c14b0c93597b"
+							}
+						],
+						"maxFeaturesOn": 1,
+						"type": "MUTUAL_EXCLUSION_GROUP",
+						"uniqueId": "3a05bca3-a938-49e0-acd3-927510096b2f"
+					}
+				],
+				"name": "FeatureProdMTXProdDev11",
+				"namespace": "tr",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "ba876d94-d965-4bc3-8a5e-e63881df758a"
+			},
+			{
+				"defaultConfiguration": "{\n\t\"colors\":[\"red\", \"green\", \"blue\", \"white\"]\n}",
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "Arrays",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "3ffbc33d-5de5-4b85-988e-ba8ba2ce2498"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "CustomArray",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "07b15a23-163a-4829-86c7-f76baffe1a13"
+			},
+			{
+				"defaultConfiguration": null,
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "Array2",
+				"namespace": "elik",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "1763c2fa-6d3b-411f-baf8-b4ba1af3c4bb"
+			},
+			{
+				"defaultConfiguration": "{\r\n\t\"launchesUntilShow\":12,\r\n\t\"noOfDaysAfterYesPromptAgain\":60,\r\n\t\"noOfDaysAfterNoPromptAgain\":90,\r\n\t\"appStoreLink\":\"market:\/\/details?id=com.weather.Weather\",\r\n\t\"initialMessage\":\"\",\r\n\t\"initialTitle\":\"AreyouenjoyingtheTheWeatherChannelApp?\",\r\n\t\"initalYesButton\":\"YES\",\r\n\t\"initialNoButton\":\"NOTREALLY\",\r\n\t\"negativeAnswerTitle\":\"That'snotgood\",\r\n\t\"negativeAnswerMessage\":\"Pleasesendusfeedbacksowecanimprove\",\r\n\t\"feedbackButton\":\"SENDFEEDBACK\",\r\n\t\"noFeedbackButon\":\"NOTHANKS\",\r\n\t\"positiveAnswerTitle\":\"Gladtohearit!\",\r\n\t\"positiveAnswerMessage\":\"WillyousharetheloveintheGooglePlayStore?\",\r\n\t\"rateUsButton\":\"RATEUS\",\r\n\t\"noRatingButton\":\"NOTHANKS\",\r\n\t\"feedbackEmail\":\"feedback@weather.com\",\r\n\t\"emailSubject\":\"AndroidApp\"\r\n}",
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "Array3",
+				"namespace": "ns",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "11545f3a-bc52-4cb9-b0a4-cd12a3ffe6fd"
+			}
+		],
+		"type": "ROOT",
+		"uniqueId": "89b7074c-56a8-4fe8-97d8-4f2ca006d0fc"
+	},
+	"s3Path": "https:\/\/airlockdev.s3-eu-west-1.amazonaws.com\/DEVAUTH2\/",
+	"seasonId": "f595a0bb-556b-44d9-819d-871fbafb3f87",
+	"supportedLanguages": [
+		"en"
+	],
+	"version": "V2.5"
+}

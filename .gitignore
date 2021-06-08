@@ -1,0 +1,12 @@
+# Gradle files
+.gradle/
+build/
+
+
+#idea
+./.idea
+
+
+#local config
+gradle.properties
+local.properties

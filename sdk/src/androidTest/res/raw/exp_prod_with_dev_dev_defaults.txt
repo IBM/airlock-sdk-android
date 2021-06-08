@@ -1,0 +1,43 @@
+{
+	"defaultLanguage": "en",
+	"devS3Path": "https:\/\/s3-eu-west-1.amazonaws.com\/airlockdev\/DEVAUTH2\/",
+	"productId": "99510a95-2e98-40f5-a32d-62a0314d9ddb",
+	"productName": "ExperimentInProdWithDevDev",
+	"root": {
+		"branchStatus": "NONE",
+		"features": [
+			{
+				"branchStatus": "NONE",
+				"defaultConfiguration": "{\n\t\"text\":\"master\"\n}",
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "F1",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "106e965f-6d3d-4169-b112-d926a20d8f6f"
+			},
+			{
+				"branchStatus": "NONE",
+				"defaultConfiguration": "{\n\t\"text\":\"master\"\n}",
+				"defaultIfAirlockSystemIsDown": false,
+				"features": [
+				],
+				"name": "F2",
+				"namespace": "ns1",
+				"noCachedResults": false,
+				"type": "FEATURE",
+				"uniqueId": "5fbce2c5-38e2-4730-ad86-8410f8057e45"
+			}
+		],
+		"type": "ROOT",
+		"uniqueId": "f400ec38-6b46-406e-bfa2-1501b50773b7"
+	},
+	"s3Path": "https:\/\/airlockdev.s3-eu-west-1.amazonaws.com\/DEVAUTH2\/",
+	"seasonId": "cad502d0-c1ef-400e-b999-ad4ad84d247a",
+	"supportedLanguages": [
+		"en"
+	],
+	"version": "V2.5"
+}

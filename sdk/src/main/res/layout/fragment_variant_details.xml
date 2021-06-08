@@ -1,0 +1,214 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context="com.weather.airlock.sdk.ui.VariantDetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/variant_details_header_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/variant_details_header_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="top"
+                android:paddingBottom="2dp"
+                android:text="Details"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#4963cd"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/variant_details_header_divider"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/variant_details_header_txt"
+                android:background="#4963cd" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/variant_is_on_bar"
+
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/variant_details_header_bar">
+
+            <TextView
+                android:id="@+id/variant_is_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="10dp"
+                android:text="Is On:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/variant_is_on_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/variant_is_on"
+                android:gravity="right"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/variant_branch_name_bar"
+
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/variant_is_on_bar">
+
+            <TextView
+                android:id="@+id/variant_branch_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="10dp"
+                android:text="Branch:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/variant_branch_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/variant_branch_name"
+                android:gravity="right"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/variant_experiment_name_bar"
+
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/variant_branch_name_bar">
+
+            <TextView
+                android:id="@+id/variant_experiment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="10dp"
+                android:text="Experiment:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/variant_experiment_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/variant_experiment_name"
+                android:gravity="right"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/variant_trace_bar"
+
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/variant_experiment_name_bar">
+
+            <TextView
+                android:id="@+id/variant_trace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="top"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Trace:"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/variant_trace_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/variant_trace"
+                android:gravity="top"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/variant_percentage_header_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/variant_trace_bar">
+
+            <TextView
+                android:id="@+id/variant_percentage_header_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="top"
+                android:paddingBottom="2dp"
+                android:paddingTop="10dp"
+                android:text="Percentage Control"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#4963cd"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/variant_percentage_header_divider"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/variant_percentage_header_txt"
+                android:background="#4963cd" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout android:id="@+id/variant_percentage_bar"
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/variant_percentage_header_bar">
+
+            <TextView
+                android:id="@+id/variant_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:gravity="left"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Feature Percentage:"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#000000" />
+
+            <Switch
+                android:id="@+id/variant_percentage_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="right" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

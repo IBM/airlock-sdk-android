@@ -1,0 +1,199 @@
+{
+  "maxVersion": null,
+  "minVersion": "1.0",
+  "productId": "80754c92-eacc-48f5-87c7-37a03c1730eb",
+  "root": {
+    "features": [
+      {
+        "additionalInfo": null,
+        "configurationRules": [
+          {
+            "configurationRules": [
+              {
+                "configuration": {
+                },
+                "configurationRules": [
+                ],
+                "enabled": false,
+                "internalUserGroups": [
+                  "DEV"
+                ],
+                "minAppVersion": "",
+                "name": "cr",
+                "namespace": "wwww",
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": "context = true;"
+                },
+                "stage": "DEVELOPMENT",
+                "type": "CONFIGURATION_RULE",
+                "uniqueId": "68662f7d-8ebb-4251-ab22-be4cc120a3be"
+              },
+              {
+                "configuration": {
+                },
+                "configurationRules": [
+                ],
+                "enabled": false,
+                "internalUserGroups": [
+                  "DEV"
+                ],
+                "minAppVersion": "3",
+                "name": "cr2",
+                "namespace": "wwww",
+                "rolloutPercentage": 100,
+                "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+                "rule": {
+                  "force": false,
+                  "ruleString": ""
+                },
+                "stage": "DEVELOPMENT",
+                "type": "CONFIGURATION_RULE",
+                "uniqueId": "efde56fc-b03b-450a-a23d-853687efd297"
+              }
+            ],
+            "maxFeaturesOn": 1,
+            "type": "CONFIG_MUTUAL_EXCLUSION_GROUP",
+            "uniqueId": "61ee1abd-87d0-4d0e-bf35-cad58666b1cc"
+          }
+        ],
+        "configurationSchema": null,
+        "defaultConfiguration": null,
+        "defaultIfAirlockSystemIsDown": false,
+        "enabled": false,
+        "features": [
+        ],
+        "internalUserGroups": [
+          "DEV"
+        ],
+        "minAppVersion": "",
+        "name": "ww",
+        "namespace": "ww",
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": ""
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "7f634a43-f804-4b4a-9ddf-113b82121ccb"
+      },
+      {
+        "additionalInfo": {
+        },
+        "configurationRules": [
+        ],
+        "configurationSchema": {
+        },
+        "defaultConfiguration": {
+        },
+        "defaultIfAirlockSystemIsDown": false,
+        "enabled": true,
+        "features": [
+        ],
+        "internalUserGroups": [
+          "DEV"
+        ],
+        "minAppVersion": "",
+        "name": "F1.a",
+        "namespace": "ns",
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": " cotext.ddd='sss'"
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "33e5ba7d-292d-4590-a585-58d8e54383f6"
+      },
+      {
+        "additionalInfo": {
+        },
+        "configurationRules": [
+        ],
+        "configurationSchema": {
+        },
+        "defaultConfiguration": {
+          "a": "b"
+        },
+        "defaultIfAirlockSystemIsDown": false,
+        "enabled": true,
+        "features": [
+        ],
+        "internalUserGroups": [
+        ],
+        "minAppVersion": "",
+        "name": "F2.aaaa.",
+        "namespace": "ns",
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": ""
+        },
+        "stage": "DEVELOPMENT",
+        "type": "FEATURE",
+        "uniqueId": "1877d652-dbf0-4b45-8c49-551898f4e7bc"
+      },
+      {
+        "additionalInfo": {
+        },
+        "configurationRules": [
+          {
+            "configuration": {
+            },
+            "configurationRules": [
+            ],
+            "enabled": true,
+            "internalUserGroups": [
+              "DEV"
+            ],
+            "minAppVersion": "1",
+            "name": "conf1",
+            "namespace": "abcns",
+            "rolloutPercentage": 100,
+            "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+            "rule": {
+              "force": false,
+              "ruleString": ""
+            },
+            "stage": "DEVELOPMENT",
+            "type": "CONFIGURATION_RULE",
+            "uniqueId": "a913c646-ed7b-43d3-9d58-6b785839dbd0"
+          }
+        ],
+        "configurationSchema": {
+        },
+        "defaultConfiguration": {
+        },
+        "defaultIfAirlockSystemIsDown": false,
+        "enabled": true,
+        "features": [
+        ],
+        "internalUserGroups": [
+          "DEV"
+        ],
+        "minAppVersion": "1",
+        "name": "abc",
+        "namespace": "ns",
+        "rolloutPercentage": 100,
+        "rolloutPercentageBitmap": "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/Dw==",
+        "rule": {
+          "force": false,
+          "ruleString": ""
+        },
+        "stage": "PRODUCTION",
+        "type": "FEATURE",
+        "uniqueId": "04d7f4ee-eec8-4965-83fb-58207affab6f"
+      }
+    ],
+    "type": "ROOT",
+    "uniqueId": "c4b31a12-47c0-4cc1-8e8c-4621c7cefae8"
+  },
+  "seasonId": "3f015d06-95a3-459b-998a-6659769ddcd7",
+  "version": "V2"
+}

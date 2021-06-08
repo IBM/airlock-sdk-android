@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/variant_item_name_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:gravity="left"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/variant_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="top"
+            android:paddingBottom="2dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/variant_item_branch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/variant_item_name"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

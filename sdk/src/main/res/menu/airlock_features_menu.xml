@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_pull"
+        android:title="Pull Features" />
+    <item
+        android:id="@+id/action_calculate"
+        android:title="Calculate Features" />
+    <item
+        android:id="@+id/action_clear_cache"
+        android:title="Clear Cache" />
+</menu>

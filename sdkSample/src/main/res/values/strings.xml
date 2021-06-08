@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">airlock-sdk-android</string>
+    <string name="groups">groups</string>
+    <string name="features_title">Features</string>
+
+    <!--button titles-->
+    <string name="pull_button">Pull</string>
+    <string name="calculate_button">Calculate</string>
+    <string name="sync_button">Sync</string>
+
+    <!--menu strings-->
+    <string name="menu_item_user_groups">User Groups</string>
+    <string name="menu_item_init">Init SDK</string>
+    <string name="menu_item_streams">Streams</string>
+    <string name="menu_item_reset">Reset All</string>
+    <string name="menu_set_data_provider">Data Provider</string>
+    <string name="menu_show_sp">Show SP</string>
+    <string name="get_last_js_errors">Get Last JS Errors</string>
+
+    <!--Debug Alert Dialog-->
+    <string name="data_provider_type_title">Data Provider Type</string>
+    <string-array name="data_provider_type_array">
+        <item name="CACHED_MODE">CACHED_MODE</item>
+        <item name="DIRECT_MODE">DIRECT_MODE</item>
+        <item name="DEV_MODE">DEV_MODE</item>
+    </string-array>
+
+    <string name="shared_preferences_title">Shared Preferences</string>
+    <string name="last_js_errors_title">Last JS Errors</string>
+    <string name="menu_server_list">Server List</string>
+    <string name="menu_branches_list">Branches List</string>
+
+    <string name="menu_airlock_features">Features</string>
+    <string name="menu_airlock_experiments">Experiments</string>
+    <string name="menu_airlock_notifications">Notifications</string>
+
+</resources>

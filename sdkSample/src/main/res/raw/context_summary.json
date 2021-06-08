@@ -1,0 +1,74 @@
+{
+  "device": {
+    "locale": "en_US",
+    "localeCountryCode": "US",
+    "localeLanguage": "en",
+    "screenWidth": 360,
+    "screenHeight": 592,
+    "version": "unknownAndroid SDK built for x86",
+    "osVersion": 25,
+    "datetime": "2016-12-26T16:36:16+02:00",
+    "connectionType": "4G"
+  },
+  "viewedLocation": {
+    "lat": 48.83,
+    "lon": -122.21,
+    "region": "WA",
+    "country": "US"
+  },
+  "userLocation": {
+    "lat": 17.309,
+    "lon": -95.6308967,
+    "region": "OA",
+    "country": "MX"
+  },
+  "weatherSummary": {
+    "closestLightning": null,
+    "nearestStartPrecip": {
+      "eventType": 2,
+      "imminence": 2,
+      "severity": 1,
+      "startTime": "2016-12-26T06:45:00-08:00",
+      "endTime": "2016-12-26T07:15:00-08:00"
+    },
+    "observation": {
+      "feelsLikeTemperature": -6,
+      "temperature": -3,
+      "skyCode": 26,
+      "dayPart": "tonight",
+      "obsTime": "2016-12-26T06:27:29-08:00",
+      "nextSunrise": "2016-12-26T08:01:37-08:00",
+      "nextSunset": "2016-12-26T16:17:48-08:00",
+      "basedGPS": false
+    },
+    "lifeStyleIndices": {
+      "drivingDifficultyIndex": 0
+    },
+    "contentMode": {
+      "mode": "normal",
+      "effectiveDateTime": "2016-10-05T00:00:00+00:00",
+      "eventName": ""
+    },
+    "nearestWinterStormAlert": {
+      "significanceCode": "W",
+      "severityCode": 2,
+      "endTime": "2016-12-28T06:00:00-08:00",
+      "phenomenaCode": "WS"
+    },
+    "nearestSnowAccumulation": {
+      "snowRange": "0",
+      "dayPart": "today"
+    },
+    "tomorrowForecast": {
+      "today": {
+        "precipPercentage": 100,
+        "precipType": "precip"
+      }
+    }
+  },
+  "userPreferences": {
+    "unitsOfMeasure": "metric",
+    "temperature": "C",
+    "velocity": "KMH"
+  }
+}

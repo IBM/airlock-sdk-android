@@ -1,0 +1,162 @@
+
+function calcDistance(coords1, coords2) {
+	function toRad(x) { return x * Math.PI / 180; };
+
+	var lon1 = coords1[0]; var lat1 = coords1[1];
+	var lon2 = coords2[0]; var lat2 = coords2[1];
+	var x1 = lat2 - lat1; var dLat = toRad(x1);
+	var x2 = lon2 - lon1; var dLon = toRad(x2);
+	var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var d = 6371 * c;
+
+	return (isMetric() ? d : d / 1.60934);
+};
+
+function getLengthUnit(){
+	var id = context.userPreferences.unitsOfMeasure == "imperial" ? "Units.Inches" : "Units.CM";
+	return translate(id);
+}
+
+function getVelocityUnit(){
+    var id = context.userPreferences.unitsOfMeasure == "metric" ? "Units.KMH":"Units.MPH" ;
+	return translate(id);
+}
+
+function getTempratureUnit(){
+    return context.userPreferences.unitsOfMeasure == "imperial"?"F":"C";
+}
+
+function getPressureUnit(){
+    var id = context.userPreferences.unitsOfMeasure == "imperial" ? "Units.InchMercury":"Units.MiliBars" ;
+	return translate(id);
+}
+
+function getDistanceShortUnit(){
+    var id = context.userPreferences.unitsOfMeasure == "imperial"? "Units.Feet":"Units.Meter";
+	return translate(id);
+}
+
+function getDistanceUnit(){
+    var id = context.userPreferences.unitsOfMeasure == "imperial"? "Units.Miles":"Units.KM" ;
+	return translate(id);
+}
+
+function isMetric() {
+	context.userPreferences.unitsOfMeasure == "metric";
+};
+
+function isCelsius() {
+	return (context.userPreferences.unitsOfMeasure == "metric" || context.userPreferences.unitsOfMeasure == "hybrid");
+};
+
+function isKMH() {
+	return context.userPreferences.unitsOfMeasure == "metric";
+};
+
+function inMiles(distance)
+{
+	return (isMetric() ? distance * 1.60934 : distance);
+};
+
+function inFahrenheit(degrees)
+{
+	return (isCelsius() ? (degrees - 32) / 1.8 : degrees);
+};
+
+function inMPH(speed)
+{
+	return (isKMH() ? speed * 1.60934 : speed);
+};
+
+function inInches(span)
+{
+	return ((context.userPreferences.unitsOfMeasure == "metric" || context.userPreferences.unitsOfMeasure == "hybrid") ? span * 2.54 : span);
+};
+
+function toDate(dateString)
+{
+	return new Date(dateString);
+};
+
+function translate(stringId)
+{
+	var stringValue = translations[stringId];
+	if (stringValue === undefined) {
+		throw "missing translation id: " + stringId;
+	}
+
+	if (typeof(_validate_translation_) !== "undefined")
+	{
+		var regex = /\[\[\[(\d+)\]\]\]/g;
+		var placeholders = [];
+		var match;
+		while (match = regex.exec(stringValue)) {
+			placeholders.push(match[1]);
+		}
+
+		for (var n = 0; n < placeholders.length; ++n) {
+			if (placeholders[n] < 1 || placeholders[n] >= arguments.length) {
+				throw "translation id: " + stringId + " has unmatched placeholder " + placeholders[n];
+			}
+		}
+	}
+
+	for (var i = 1; i < arguments.length; ++i) {
+		stringValue = stringValue.replace( "[[[" + i + "]]]", arguments[i]);
+	}
+	return stringValue;
+};
+
+function deepFreeze(obj)
+{
+	Object.freeze(obj);
+	Object.getOwnPropertyNames(obj).forEach(function (prop)	{
+		if (obj.hasOwnProperty(prop) && obj[prop] !== null
+		&& (typeof obj[prop] === "object" || typeof obj[prop] === "function")
+		&& !Object.isFrozen(obj[prop])) {
+			deepFreeze(obj[prop]);
+		}
+	});
+	return obj;
+};
+
+function getHours(date){
+	return parseInt(date.substring(11,13),10);
+}
+
+function getMinutes(date){
+	return parseInt(date.substring(14,16),10);
+}
+
+function getTimeStr(date){
+	return date.substring(11,16);
+}
+
+function formatAMPM(d) {
+
+	if (context.userPreferences.is24HourFormat){
+		return getTimeStr(d);
+	}
+	var hours = getHours(d);
+	var minutes = getMinutes(d);
+	var ampm = hours >= 12 ? translate("Units.PM") : translate("Units.AM");
+	hours = hours % 12; hours = hours ? hours : 12;
+	minutes = minutes < 10 ? '0'+minutes : minutes;
+	var strTime = hours + ':' + minutes + ' ' + ampm;
+	return strTime;
+};
+
+function compareTime (d, str) {
+  var hours = getHours(d);
+  var minutes = getMinutes(d);
+  var target = str.split(":");
+
+  var small = 0;
+  if  (hours < target[0]) {small = 1 }
+  else if (minutes < target[1]){small = 1}
+  else {small= -1};
+
+  return small;
+};
+

@@ -1,0 +1,70 @@
+function calcDistance(coords1, coords2) {
+	function toRad(x) { return x * Math.PI / 180; };
+
+	var lon1 = coords1[0]; var lat1 = coords1[1];
+	var lon2 = coords2[0]; var lat2 = coords2[1];
+	var x1 = lat2 - lat1; var dLat = toRad(x1);
+	var x2 = lon2 - lon1; var dLon = toRad(x2);
+	var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var d = 6371 * c; // earth radius in km
+
+	return (isMetric() ? d : d / 1.60934);
+
+};
+
+function isMetric() {
+	return context.userPreferences.metricSystem == true;
+};
+function isCelsius() {
+	return context.userPreferences.temperature == "C";
+};
+function isKMH() {
+	return context.userPreferences.velocity == "KMH";
+};
+
+function InMiles(distance)
+{
+	return (isMetric() ? distance * 1.60934 : distance);
+};
+function InFahrenheit(degrees)
+{
+	return (isCelsius() ? (degrees - 32) / 1.8 : degrees);
+};
+function InMPH(speed)
+{
+	return (isKMH() ? speed * 1.60934 : speed);
+};
+function InInches(span)
+{
+	return (isMetric() ? span * 2.54 : span); // to cm
+};
+
+function toDate(dateString)
+{
+	return new Date(dateString);
+};
+
+function translate(stringId)
+{
+	var stringValue = translations[stringId];
+
+	for (var i = 1; i < arguments.length; ++i) {
+		stringValue = stringValue.replace( "{" + i + "}", arguments[i]);
+	}
+
+	return stringValue;
+}
+
+function deepFreeze(obj)
+{
+	Object.freeze(obj);
+	Object.getOwnPropertyNames(obj).forEach(function (prop)	{
+		if (obj.hasOwnProperty(prop) && obj[prop] !== null
+		&& (typeof obj[prop] === "object" || typeof obj[prop] === "function")
+		&& !Object.isFrozen(obj[prop])) {
+			deepFreeze(obj[prop]);
+		}
+	});
+  return obj;
+};

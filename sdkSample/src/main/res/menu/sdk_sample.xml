@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_user_groups"
+        android:title="@string/menu_item_user_groups" />
+    <item
+        android:id="@+id/menu_server_list"
+        android:title="@string/menu_server_list" />
+    <item
+        android:id="@+id/menu_branches"
+        android:title="@string/menu_branches_list" />
+    <item
+        android:id="@+id/menu_airlock_features"
+        android:title="@string/menu_airlock_features" />
+    <item
+        android:id="@+id/menu_airlock_experiments"
+        android:title="@string/menu_airlock_experiments" />
+    <item
+        android:id="@+id/menu_airlock_notifications"
+        android:title="@string/menu_airlock_notifications" />
+    <item
+        android:id="@+id/menu_init"
+        android:title="@string/menu_item_init" />
+    <item
+        android:id="@+id/menu_reset"
+        android:title="@string/menu_item_reset" />
+    <item
+        android:id="@+id/menu_data_provider"
+        android:title="@string/menu_set_data_provider" />
+    <item
+        android:id="@+id/menu_show_sp"
+        android:title="@string/menu_show_sp" />
+    <item
+        android:id="@+id/menu_get_last_js_errors"
+        android:title="@string/get_last_js_errors" />
+    <item
+        android:id="@+id/entitlements"
+        android:title="Entitlements" />
+    <item
+        android:id="@+id/streams"
+        android:title="@string/menu_item_streams" />
+
+    <item
+        android:id="@+id/airlytics"
+        android:title="airlytics" />
+</menu>

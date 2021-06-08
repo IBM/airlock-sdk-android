@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="InvalidPackage">
+        <ignore path="**/okio-1.9.0.jar" />
+        <ignore path="**/jts-1.13.jar" />
+    </issue>
+    <!-- it doesn't make sense to fail just because we don't use some alpha software -->
+    <issue id="NewerVersionAvailable" severity="ignore" />
+    <issue id="OldTargetApi" severity="ignore" />
+</lint>

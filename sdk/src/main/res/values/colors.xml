@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="blue" type="color">#FF0099CC</item>
+    <item name="medium_blue" type="color">#0000CD</item>
+</resources>

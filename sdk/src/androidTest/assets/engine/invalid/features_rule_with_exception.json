@@ -1,0 +1,34 @@
+{
+  "root": {
+    "seasonName": "AndroidFlagship.S1",
+    "seasonId": "e2d4efc6-90cf-40f7-a4aa-323daf14e0e3",
+    "features": [
+      {
+        "enabled": true,
+        "lastModified": 1469599032402,
+        "parent": null,
+        "features": [],
+        "uniqueId": "cf336e86-00b8-48b1-8021-cbd19f08931d",
+        "type": "FEATURE",
+        "stage": "DEVELOPMENT",
+        "additionalInfo": {},
+        "namespace": "ns1",
+        "creator": "Philip",
+        "creationDate": 1469599032402,
+        "internalUserGroups": [
+          "QA",
+          "DEV"
+        ],
+        "description": "F1 desc",
+        "rule": {
+          "ruleString": "profile.name == \"myname\" , context.location == \"CA\""
+        },
+        "minAppVersion": "2.3",
+        "name": "Multi Location Home Screen",
+        "seasonId": "e2d4efc6-90cf-40f7-a4aa-323daf14e0e3",
+        "owner": "Norman",
+        "defaultIfAirlockSystemIsDown": false
+      }
+    ]
+  }
+}

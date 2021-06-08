@@ -1,0 +1,54 @@
+{
+  "devS3Path": "https:\/\/airlockstorage.blob.core.windows.net\/dev1\/",
+  "defaultLanguage": "en",
+  "productId": "f8be44b0-3278-495f-a4a2-e4243787379d",
+  "s3Path": "https:\/\/airlockstorage.blob.core.windows.net\/dev1",
+  "supportedLanguages": [
+    "en"
+  ],
+  "seasonId": "6726ce72-11d6-4c8f-84dd-b0b9647d1e40",
+  "root": {
+    "features": [
+      {
+        "features": [
+
+        ],
+        "defaultIfAirlockSystemIsDown": false,
+        "name": "Feature1",
+        "namespace": "features",
+        "type": "FEATURE",
+        "uniqueId": "1b84579f-51f4-4d47-b62e-84121e1f7d63",
+        "defaultConfiguration": null,
+        "noCachedResults": false
+      },
+      {
+        "features": [
+
+        ],
+        "defaultIfAirlockSystemIsDown": false,
+        "name": "Feature2",
+        "namespace": "features",
+        "type": "FEATURE",
+        "uniqueId": "f62ea4f5-f640-42dc-9aab-81ff084f6621",
+        "defaultConfiguration": null,
+        "noCachedResults": false
+      },
+      {
+        "features": [
+
+        ],
+        "defaultIfAirlockSystemIsDown": false,
+        "name": "Feature3",
+        "namespace": "features",
+        "type": "FEATURE",
+        "uniqueId": "51985efc-e253-4187-8891-0a301fc563b3",
+        "defaultConfiguration": null,
+        "noCachedResults": false
+      }
+    ],
+    "type": "ROOT",
+    "uniqueId": "c159f900-0bfc-40d0-b267-6b35dcf488a5"
+  },
+  "version": "V2.5",
+  "productName": "QA.SecureConnection"
+}

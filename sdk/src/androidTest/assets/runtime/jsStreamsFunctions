@@ -1,0 +1,288 @@
+ 
+function deepFreeze(obj)
+{
+	Object.freeze(obj);
+	Object.getOwnPropertyNames(obj).forEach(function (prop)	{
+		if (obj.hasOwnProperty(prop) && obj[prop] !== null
+		&& (typeof obj[prop] === "object" || typeof obj[prop] === "function")
+		&& !Object.isFrozen(obj[prop])) {
+			deepFreeze(obj[prop]);
+		}
+	});
+	return obj;
+};
+
+//----------------------------------------------------------------------------------
+// this function replaces deepFreeze(), to provide alerts when changes are attempted
+function create_frozen_object(name, content)
+{
+	Object.defineProperty(this, name, {
+		value: content,
+		enumerable: true,
+		configurable: true
+	});
+
+	// activate alerts in validation mode
+	if (typeof(_validation_mode_) !== "undefined")
+	{
+		make_proxy(this, name);
+	}
+}
+
+function make_proxy(obj, propName)
+{
+	var attr = Object.getOwnPropertyDescriptor(obj, propName);
+	if (!attr.configurable)
+		return;
+
+	var prop = obj[propName];
+	obj["__proxy__" + propName] = prop;
+	
+	if (typeof prop === "object" && prop !== null)
+	{
+		var child_names = Object.getOwnPropertyNames(prop);
+		for (var i = 0; i < child_names.length; ++i)
+		{
+			make_proxy(prop, child_names[i]);
+		}
+	}
+	redefine_property(obj, propName);
+}
+
+function redefine_property(obj, nam)
+{
+	Object.defineProperty(obj, nam, {
+		set: function(val) {  throw "error: trying to modify frozen context with " + val;  },
+		get: function ()    { return obj["__proxy__" + nam]; }
+	});
+}
+//---------------------------------------------------------------------------------
+
+function isImperial() {
+	return context.userPreferences.unitsOfMeasure == "imperial";
+};
+function isMetric() {
+	return context.userPreferences.unitsOfMeasure == "metric";
+};
+function isHybrid() {
+	return context.userPreferences.unitsOfMeasure == "hybrid";
+};
+function isCelsius() {
+	return (isMetric() || isHybrid());
+};
+function isKMH() {
+	return isMetric();
+};
+
+function calcDistance(coords1, coords2) {
+	function toRad(x) { return x * Math.PI / 180; };
+
+	var lon1 = coords1[0]; var lat1 = coords1[1];
+	var lon2 = coords2[0]; var lat2 = coords2[1];
+	var x1 = lat2 - lat1; var dLat = toRad(x1);
+	var x2 = lon2 - lon1; var dLon = toRad(x2);
+	var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var d = 6371 * c; // earth radius in km
+
+	return isMetric() ? d : (d / 1.60934);
+};
+
+function getLengthUnit(){ // hybrid is cm
+	var id = isImperial() ? "Units.Inches" : "Units.CM";
+	return translate(id);
+}
+
+function getVelocityUnit(){ // hybrid is miles
+    var id = isMetric() ? "Units.KMH" : "Units.MPH" ;
+	return translate(id);
+}
+
+function getTemperatureUnit(){ // hybrid is C
+    return isImperial() ? "F" : "C";
+}
+
+function getPressureUnit(){ // hybrid is MB
+    var id = isImperial() ? "Units.InchMercury" : "Units.MiliBars" ;
+	return translate(id);
+}
+
+function getDistanceShortUnit(){ // hybrid is meters
+    var id = isImperial() ? "Units.Feet" : "Units.Meter";
+	return translate(id);
+}
+
+function getDistanceUnit(){ // hybrid is miles
+    var id = isMetric() ? "Units.KM"  : "Units.Miles" ;
+	return translate(id);
+}
+
+function inMiles(distance)
+{
+	return (isMetric() ? distance * 1.60934 : distance);
+};
+
+function inFahrenheit(degrees)
+{
+	return (isCelsius() ? (degrees - 32) / 1.8 : degrees);
+};
+
+function inMPH(speed)
+{
+	return (isKMH() ? speed * 1.60934 : speed);
+};
+
+function inInches(span) // hybrid is cm
+{
+	return isImperial() ? span : span * 2.54;
+};
+
+function translate(stringId)
+{
+	var stringValue = translations[stringId];
+	if (stringValue === undefined) {
+		throw "missing translation id: " + stringId;
+	}
+
+	if (typeof(_validation_mode_) !== "undefined")
+	{
+		var regex = /\[\[\[(\d+)\]\]\]/g;
+		var placeholders = [];
+		var match;
+		while (match = regex.exec(stringValue)) {
+			placeholders.push(match[1]);
+		}
+
+		for (var n = 0; n < placeholders.length; ++n) {
+			if (placeholders[n] < 1 || placeholders[n] >= arguments.length) {
+				throw "translation id: " + stringId + " has unmatched placeholder " + placeholders[n];
+			}
+		}
+	}
+
+	for (var i = 1; i < arguments.length; ++i) {
+		stringValue = stringValue.replace( "[[[" + i + "]]]", arguments[i]);
+	}
+	return stringValue;
+};
+
+
+function toDate(dateString) {
+	return new Date(dateString);
+};
+
+function getHours(date){
+	return parseInt(date.substring(11,13),10);
+}
+
+function getMinutes(date){
+	return parseInt(date.substring(14,16),10);
+}
+
+function getTimeStr(date){
+	return date.substring(11,16);
+}
+
+function formatAMPM(d) {
+	
+	if (context.userPreferences.is24HourFormat){
+		return getTimeStr(d);
+	}
+	var hours = getHours(d); 
+	var minutes = getMinutes(d); 
+	var ampm = hours >= 12 ? translate("Units.PM") : translate("Units.AM");
+
+	hours = hours % 12; hours = hours ? hours : 12; // the hour '0' should be '12' 
+	minutes = minutes < 10 ? '0'+minutes : minutes;
+
+    var strTime = formatDigits(hours + ':' + minutes, context.userPreferences.isEasternArabicNumerals);
+    if (context.device.localeLanguage == "ja" || context.device.localeLanguage.startsWith("zh")){
+        strTime = ampm + strTime;
+    } else if (context.device.localeLanguage == "ko"){
+        strTime = ampm + ' ' + strTime;
+    } else {
+        strTime = strTime + ' ' + ampm;
+    }
+	return strTime; 
+};
+
+function formatDigits(str, isEasternArabicNumerals){
+
+    if (!isEasternArabicNumerals) { return str; }
+
+    var retVal;
+    if (typeof str !== 'string') { 
+        retVal = str.toString();
+    } else {
+        retVal = str;
+    }
+    var id = ["\u06F0","\u06F1","\u06F2","\u06F3","\u06F4","\u06F5","\u06F6","\u06F7","\u06F8","\u06F9"];
+    return retVal.replace(/[0-9]/g, function(w){
+        return id[+w];
+    });
+};
+
+function compareTime (d, str) {
+  var hours = getHours(d);
+  var minutes = getMinutes(d);
+  var target = str.split(":");
+
+  var diff = hours - target[0];
+  if (diff != 0)
+	return (diff < 0) ? -1 : 1;
+
+  diff = minutes - target[1];
+  return (diff == 0) ? 0 : (diff < 0 ? -1 : 1);
+};
+
+// a more extensible implementation of InMiles(), InFahrenheit() etc.
+// supply size and type of the unit (todo: use an enum object for the unit type instead of a string)
+function Unit(amount, type)
+{
+	switch (type)
+	{
+	case "M":
+	case "miles":
+		return (isMetric() || isHybrid()) ? amount * 1.60934 : amount;
+
+	case "KM":
+	case "kilometers":
+		return (isMetric() ? amount : amount / 1.60934);
+
+	case "MPH":
+		return (isKMH() ? amount * 1.60934 : amount);
+
+	case "KMH":
+		return (isKMH() ? amount : amount / 1.60934);
+
+	case "I":
+	case "inches":
+		return (isMetric() ? amount * 2.54 : amount);
+
+	case "CM":
+	case "centimeters":
+		return (isMetric() || isHybrid()) ? amount : amount / 2.54;
+
+	case "F":
+	case "fahrenheit":
+		return (isCelsius() ? (amount - 32) / 1.8 : amount);
+
+	case "C":
+	case "celsius":
+		return (isCelsius() ? amount : (amount * 1.8) + 32);
+
+	default:
+		throw "type " + type + " is not implemented" ;
+	}
+};
+
+function exists(varName)
+{
+	try {
+		return eval(varName) !== undefined;
+	}
+	catch(err) {
+		return false;
+	}
+};
+
