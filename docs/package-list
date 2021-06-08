@@ -1,0 +1,8 @@
+com.weather.airlock.sdk
+com.weather.airlock.sdk.analytics
+com.weather.airlock.sdk.cache
+com.weather.airlock.sdk.log
+com.weather.airlock.sdk.net
+com.weather.airlock.sdk.notifications
+com.weather.airlock.sdk.ui
+com.weather.airlock.sdk.util
