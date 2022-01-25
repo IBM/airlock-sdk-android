@@ -5,6 +5,7 @@ build/
 
 #idea
 ./.idea
+.idea/
 
 
 #local config

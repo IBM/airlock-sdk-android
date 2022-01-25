@@ -1,1 +1,3 @@
 include ':sdkSample', ':sdk' , ":airlock-sdk-common"
+include ':airlytics'
+include ':airlyticsSampleApp'
