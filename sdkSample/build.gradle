@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
 
@@ -7,6 +6,9 @@ allprojects {
     repositories {
         mavenCentral()
         google()
+        flatDir {
+            dirs '../sdk/build/outputs/aar/'
+        }
     }
 }
 
@@ -16,20 +18,20 @@ buildscript {
         google()
         mavenCentral()
     }
-
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 
 }
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+    buildToolsVersion '30.0.2'
 
     defaultConfig {
         applicationId "com.weather.airlockSampleApp"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -37,15 +39,26 @@ android {
 
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("/Users/denisvoloshin/keys/sdkSample.jks")
+            storePassword "nnazgull1"
+            keyAlias "key0"
+            keyPassword "nnazgull1"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             testCoverageEnabled true
             minifyEnabled false
-            useProguard false
         }
     }
 
@@ -56,16 +69,16 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1'
-    implementation ( 'com.weather.android:airlock-sdk-android:5.4.2@aar')
-    testImplementation 'org.robolectric:robolectric:3.1.2'
+    implementation project(path: ':sdk')
+    testImplementation 'org.robolectric:robolectric:4.5.1'
     testImplementation 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
-    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation project(path: ':airlock-sdk-common')
 }
 repositories {
     mavenCentral()

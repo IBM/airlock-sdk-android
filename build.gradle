@@ -1,23 +1,205 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+//apply from: 'jenkins/reporting.gradle'
+
+
 buildscript {
-    ext.kotlin_version = '1.2.60'
+    ext.kotlin_version = '1.5.31'
     repositories {
+        jcenter()
         google()
+        maven {
+            url = artifactory_url + artifactory_repo_key_bundle
+            credentials {
+                username artifactory_username
+                password artifactory_password
+            }
+            println  url
+            print credentials.username
+            print "/"
+            print credentials.password
+            print "\n"
+
+        }
         maven {
             url "https://plugins.gradle.org/m2/"
         }
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.24.21'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
-
 allprojects {
+    apply plugin: 'com.jfrog.artifactory'
     apply plugin: 'maven-publish'
+
     repositories {
         google()
+        //use maven repo
         mavenCentral()
+        maven {
+            url 'https://jitpack.io'
+        }
+        maven {
+            url = artifactory_url + artifactory_repo_key_bundle
+            credentials {
+                username artifactory_username
+                password artifactory_password
+            }
+        }
+        maven { url 'https://dl.bintray.com/kategory/maven' }
     }
+}
+
+ext {
+    //change to false to publish a release build
+    SNAPSHOT = false
+    BUILD_NUMBER = System.getenv("BUILD_NUMBER") ?: devBuildNumber
+    VERSION_MICRO_BUILD_NUMBER = releaseMicroBuildNumber
+
+    VERSION_MAJOR_SDK = 5
+    VERSION_MINOR_SDK = 4
+    VERSION_MICRO_SDK = "$BUILD_NUMBER"
+    VERSION_EXTENSION_SDK = SNAPSHOT ? "-SNAPSHOT" : ""
+    VERSION_MICRO_SDK = SNAPSHOT ? "$BUILD_NUMBER" : VERSION_MICRO_BUILD_NUMBER
+    VERSION_SDK = "$VERSION_MAJOR_SDK.$VERSION_MINOR_SDK.$VERSION_MICRO_SDK$VERSION_EXTENSION_SDK"
+
+    VERSION_MAJOR_COMMON = 5
+    VERSION_MINOR_COMMON = 4
+    VERSION_MICRO_COMMON = "$BUILD_NUMBER"
+    VERSION_EXTENSION_COMMON = SNAPSHOT ? "-SNAPSHOT" : ""
+    VERSION_MICRO_COMMON = SNAPSHOT ? "$BUILD_NUMBER" : VERSION_MICRO_BUILD_NUMBER
+    VERSION_COMMON = "$VERSION_MAJOR_COMMON.$VERSION_MINOR_COMMON.$VERSION_MICRO_COMMON$VERSION_EXTENSION_COMMON"
+    JAR_VERSION = "$VERSION_MAJOR_COMMON.$VERSION_MINOR_COMMON.$VERSION_MICRO_COMMON"
+
+    MVN_REPO_URL_BASE = artifactory_url
+    MVN_REPO_URL = getRepositoryUrl()
+    MVN_GROUP = "com.weather.android"
+    MVN_ARTIFACT_ID = 'airlock'
+
+    MVN_USERNAME = artifactory_username
+    MVN_PASSWORD = artifactory_password
+}
+
+def getRepositoryUrl() {
+    if (!SNAPSHOT) {
+        return ext.MVN_REPO_URL_BASE + 'releases'
+    } else {
+        return ext.MVN_REPO_URL_BASE + 'snapshots'
+    }
+}
+
+/**
+ *  Run "./gradlew artifactoryPublish" to publish the artifacts
+ */
+
+artifactoryPublish.skip = true
+
+project('airlock-sdk-common') {
+    artifactoryPublish.dependsOn('build')
+    publishing {
+        publications {
+            jar(MavenPublication) {
+                groupId = MVN_GROUP
+                artifactId = MVN_ARTIFACT_ID + "-sdk-common"
+                version = VERSION_COMMON
+
+                if (!SNAPSHOT) {
+                    artifact("$buildDir/libs/release/airlock-sdk-common-"+JAR_VERSION+".jar")
+
+                } else {
+                    artifact("$buildDir/libs/debug/airlock-sdk-common-"+JAR_VERSION+".jar")
+                }
+
+                pom.withXml {
+                    def dependencies = asNode().appendNode('dependencies')
+                    configurations.getByName("compile").getResolvedConfiguration().getFirstLevelModuleDependencies().each {
+                        def dependency = dependencies.appendNode('dependency')
+                        dependency.appendNode('groupId', it.moduleGroup)
+                        dependency.appendNode('artifactId', it.moduleName)
+                        dependency.appendNode('version', it.moduleVersion)
+                    }
+                }
+            }
+        }
+    }
+
+    artifactoryPublish {
+        publications(publishing.publications.jar)
+    }
+}
+
+project('sdk') {
+    publishing {
+        publications {
+            aar(MavenPublication) {
+                groupId = MVN_GROUP
+                artifactId = MVN_ARTIFACT_ID + "-sdk-android"
+                version = VERSION_SDK
+
+                if (!SNAPSHOT) {
+                    artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+                } else {
+                    artifact("$buildDir/outputs/aar/${project.getName()}-debug.aar")
+                }
+                pom.withXml {
+                    def dependenciesNode = asNode().appendNode('dependencies')
+                    //Iterate over the compile dependencies (we don't want the test ones), adding a <dependency> node for each
+                    configurations.compile.allDependencies.each {
+                        if(it.group != null && (it.name != null || "unspecified".equals(it.name)) && it.version != null)
+                        {
+                            def dependencyNode = dependenciesNode.appendNode('dependency')
+                            dependencyNode.appendNode('groupId', it.group)
+                            dependencyNode.appendNode('artifactId', it.name)
+                            dependencyNode.appendNode('version', it.version)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    artifactoryPublish {
+        publications(publishing.publications.aar)
+    }
+}
+
+artifactory {
+    clientConfig.setIncludeEnvVars(true)
+    clientConfig.info.addEnvironmentProperty('test.adding.dynVar',new Date().toString())
+
+    contextUrl = MVN_REPO_URL_BASE
+    publish {
+        repository {
+            repoKey = artifactory_repo_key // The Artifactory repository key to publish to
+            username = MVN_USERNAME // The publisher user name
+            password = MVN_PASSWORD // The publisher password
+        }
+        defaults {
+            // Reference to Gradle publications defined in the build script.
+            // This is how we tell the Artifactory Plugin which artifacts should be
+            // published to Artifactory.
+            publications('aar')
+            publishArtifacts = true
+            // Properties to be attached to the published artifacts.
+            if (!SNAPSHOT) {
+                properties = ['release.type': 'release', 'team' : 'airlock']
+            } else {
+                properties = ['release.type': 'dev', 'team' : 'airlock']
+            }
+            publishPom = true // Publish generated POM files to Artifactory (true by default)
+        }
+    }
+    resolve {
+        repoKey = 'jcenter'
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
