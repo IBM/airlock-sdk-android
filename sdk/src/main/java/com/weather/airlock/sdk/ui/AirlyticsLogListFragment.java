@@ -23,7 +23,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import com.weather.airlock.sdk.R;
-import com.weather.airlock.sdk.analytics.AnalyticsDefaultImpl;
+import com.weather.airlytics.AL;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,8 +50,6 @@ public class AirlyticsLogListFragment extends Fragment {
     //current events list with  the selection choice for this device.
     private List<JSONObject> logEvents;
 
-    private AnalyticsDefaultImpl airlyticsImpl = new AnalyticsDefaultImpl();
-
     //current branch name, by default is 'master'
     private String environmentName;
 
@@ -69,15 +67,13 @@ public class AirlyticsLogListFragment extends Fragment {
 
         this.logEvents = new ArrayList<>();
 
-        Map logEntries = airlyticsImpl.generateLogList(getContext(), environmentName);
-        if (logEntries != null){
-            for (Object entry : logEntries.values()) {
-                if (entry instanceof String) {
-                    try {
-                        logEvents.add(new JSONObject((String) entry));
-                    } catch (JSONException e) {
-                        //do nothing
-                    }
+        Map logEntries = generateLogList();
+        for (Object entry : logEntries.values()) {
+            if (entry instanceof String) {
+                try {
+                    logEvents.add(new JSONObject((String) entry));
+                } catch (JSONException e) {
+                    //do nothing
                 }
             }
         }
@@ -157,6 +153,12 @@ public class AirlyticsLogListFragment extends Fragment {
                 }
             });
         }
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private Map<String, ?> generateLogList() {
+        return AL.Companion.getEnvironmentLogEvents(getContext(), environmentName);
     }
 
     public static Fragment newInstance(String envName) {

@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.ibm.airlock.common.airlytics.AnalyticsApiInterface;
+import com.ibm.airlock.common.analytics.AnalyticsApiInterface;
 import com.ibm.airlock.common.cache.PersistenceHandler;
 import com.ibm.airlock.common.data.Feature;
 import com.weather.airlock.sdk.AirlockManager;
@@ -108,9 +108,8 @@ public class AirlyticsEnvListFragment extends Fragment {
 
                 Switch toastDebugSwitch = (Switch) footer.findViewById(R.id.toastDebugSwitch);
 
-                final PersistenceHandler sp = AirlockManager.getInstance().getCacheManager().getPersistenceHandler();
+                final PersistenceHandler sp = AirlockManager.getInstance().getDebuggableCache().getPersistenceHandler();
                 toastDebugSwitch.setChecked(sp.readBoolean(SP_AIRLYTICS_EVENT_DEBUG, false));
-
                 toastDebugSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         sp.write(SP_AIRLYTICS_EVENT_DEBUG, isChecked);
@@ -159,6 +158,7 @@ public class AirlyticsEnvListFragment extends Fragment {
 
     @CheckForNull
     private Map<String, String> generateEnvironmentsList() {
+
         AirlockManager manager = AirlockManager.getInstance();
         Feature airlyticsFeature = manager.getFeature(airlyticsImpl.getAnalyticsFeatureName(AnalyticsApiInterface.ConstantsKeys.ANALYTICS_MAIN_FEATURE));
         if (!airlyticsFeature.isOn()) {

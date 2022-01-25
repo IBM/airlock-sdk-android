@@ -10,19 +10,23 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatCheckedTextView;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.ibm.airlock.common.airlytics.AnalyticsApiInterface;
+import com.ibm.airlock.common.analytics.AnalyticsApiInterface;
 import com.ibm.airlock.common.cache.PersistenceHandler;
 import com.ibm.airlock.common.net.AirlockDAO;
 import com.ibm.airlock.common.util.Constants;
@@ -56,6 +60,7 @@ public class BranchesManagerActivity extends AppCompatActivity {
     //current branch name, by default is 'master'
     private String[] branchNames;
 
+    EditText searchedTxtView;
 
     // holds the name of the selected branch
     @Nullable
@@ -84,7 +89,7 @@ public class BranchesManagerActivity extends AppCompatActivity {
         //init list
         this.branches = new Hashtable<>();
 
-        AirlockDAO.pullBranches(AirlockManager.getInstance().getCacheManager(), new Callback() {
+        AirlockDAO.pullBranches(AirlockManager.getInstance().getDebuggableCache(), new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 final String error = String.format(getResources().getString(R.string.retrieving_branches), call.request().url().toString());
@@ -145,6 +150,25 @@ public class BranchesManagerActivity extends AppCompatActivity {
                             ViewGroup header = (ViewGroup) inflater.inflate(R.layout.branches_list_header, listView, false);
                             listView.addHeaderView(header);
 
+                            searchedTxtView = (EditText)  header.findViewById(R.id.search_bar);
+
+                            searchedTxtView.addTextChangedListener(new TextWatcher() {
+                                @Override
+                                public void beforeTextChanged(CharSequence sequence, int start, int count, int after) {
+
+                                }
+
+                                @Override
+                                public void onTextChanged(CharSequence sequence, int start, int before, int count) {
+                                    adapter.getFilter().filter(sequence);
+                                }
+
+                                @Override
+                                public void afterTextChanged(Editable s) {
+
+                                }
+                            });
+
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -170,6 +194,7 @@ public class BranchesManagerActivity extends AppCompatActivity {
         });
     }
 
+
     private void showToast(final String msg) {
         runOnUiThread(new Runnable() {
             @Override
@@ -183,7 +208,7 @@ public class BranchesManagerActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
-        final PersistenceHandler ph = AirlockManager.getInstance().getCacheManager().getPersistenceHandler();
+        final PersistenceHandler ph = AirlockManager.getInstance().getDebuggableCache().getPersistenceHandler();
 
         final String previousBranchName = ph.getDevelopBranchName();
         if (selectedDevelopBranch == null || selectedDevelopBranch.equals("")) {
@@ -193,7 +218,7 @@ public class BranchesManagerActivity extends AppCompatActivity {
             return;
         }
         final String selectedDevelopBranchId = branches.get(selectedDevelopBranch);
-        AirlockDAO.pullBranchById(AirlockManager.getInstance().getCacheManager(), branches.get(selectedDevelopBranch), new Callback() {
+        AirlockDAO.pullBranchById(AirlockManager.getInstance().getDebuggableCache(), branches.get(selectedDevelopBranch), new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 final String error = String.format(getResources().getString(R.string.retrieving_branch_error), call.request().url().toString());
@@ -242,7 +267,7 @@ public class BranchesManagerActivity extends AppCompatActivity {
 
     private Map<String, String> generateBranchesList(JSONArray branches) {
         Map<String, String> branchesMap = new Hashtable<>();
-        selectedDevelopBranch = AirlockManager.getInstance().getCacheManager().getPersistenceHandler().getDevelopBranchName();
+        selectedDevelopBranch = AirlockManager.getInstance().getDebuggableCache().getPersistenceHandler().getDevelopBranchName();
         int branchesListLength = branches.length();
         for (int i = 0; i < branchesListLength; i++) {
             JSONObject branchJSON = branches.optJSONObject(i);
@@ -269,5 +294,6 @@ public class BranchesManagerActivity extends AppCompatActivity {
 
     private void findViewsById() {
         listView = (ListView) findViewById(R.id.list);
+        searchedTxtView = (EditText) findViewById(R.id.search_bar);
     }
 }

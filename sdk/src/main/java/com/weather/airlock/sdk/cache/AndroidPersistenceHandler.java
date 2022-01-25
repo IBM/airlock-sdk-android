@@ -1,5 +1,7 @@
 package com.weather.airlock.sdk.cache;
 
+import android.annotation.SuppressLint;
+
 import com.ibm.airlock.common.AirlockCallback;
 import com.ibm.airlock.common.cache.BasePersistenceHandler;
 import com.ibm.airlock.common.cache.Context;
@@ -11,10 +13,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
@@ -26,23 +37,15 @@ import javax.annotation.Nullable;
 
 public class AndroidPersistenceHandler extends BasePersistenceHandler {
 
+    static Future<Void> fileUploader = null;
 
     public AndroidPersistenceHandler(Context c) {
         super(c);
-        init(c);
     }
 
-    public void init(Context c, AirlockCallback callback) {
-        final long startTime = System.currentTimeMillis();
-        preferences = c.getSharedPreferences(Constants.SP_NAME, android.content.Context.MODE_PRIVATE);
-        Logger.log.d(TAG, "Initialization of sharedPreferences too : " + (System.currentTimeMillis() - startTime) + " millisecond");
-        context = c;
-        //If first time the app starts or it is a test mock app (files dir is null) - do not read from file system
-        if (isInitialized() && context.getFilesDir() != null) {
-            new Thread(new FilePreferencesReader(callback)).start();
-        }
+    public static Future<Void> getFileUploader() {
+        return fileUploader;
     }
-
 
     public void init(Context c) {
         final long startTime = System.currentTimeMillis();
@@ -51,8 +54,13 @@ public class AndroidPersistenceHandler extends BasePersistenceHandler {
         context = c;
         //If first time the app starts or it is a test mock app (files dir is null) - do not read from file system
         if (isInitialized() && context.getFilesDir() != null) {
-            new Thread(new FilePreferencesReader(null)).start();
+            fileUploader =  readPreferences();
         }
+    }
+
+    @Override
+    public Future<Void> getUploadStatus() {
+        return fileUploader;
     }
 
     public synchronized void reset(Context c) {
@@ -118,11 +126,11 @@ public class AndroidPersistenceHandler extends BasePersistenceHandler {
     }
 
     /**
-     * The reason this has a seperate method is because it is called when app stopps - so we need to persist synchronously
+     * The reason this has a separate method is because it is called when app stops - so we need to persist synchronously
      *
-     * @param jsonAsString
+     * @param jsonAsString the json value represented as string
      */
-    public void writeStream(String name, String jsonAsString) {
+    public void writeStream(String name,@Nullable String jsonAsString) {
         if (jsonAsString != null && !jsonAsString.isEmpty()) {
             //if it is a test mock app (files dir is null) - do not write to file system
             if (this.context.getFilesDir() != null) {
@@ -153,7 +161,7 @@ public class AndroidPersistenceHandler extends BasePersistenceHandler {
     }
 
     /**
-     * The reason this has a seperate method is because it is called when app stopps - so we need to persist synchronously
+     * The reason this has a separate method is because it is called when app stops - so we need to persist synchronously
      */
     public JSONObject readStream(String name) {
 
@@ -184,6 +192,10 @@ public class AndroidPersistenceHandler extends BasePersistenceHandler {
             if (inMemoryPreferences.containsKey(preferenceName)) {
                 return inMemoryPreferences.get(preferenceName);
             }
+            File file = new File(context.getFilesDir(),preferenceName);
+            if(!file.exists()){
+                return null;
+            }
             final long startTime = System.currentTimeMillis();
             FileInputStream fis = null;
             ByteArrayOutputStream result = new ByteArrayOutputStream();
@@ -207,13 +219,11 @@ public class AndroidPersistenceHandler extends BasePersistenceHandler {
                 Logger.log.w(TAG, "Failed to get value for: " + preferenceName + " from file system. File not found.");
             } catch (IOException e) {
                 Logger.log.w(TAG, "Failed to get value for: " + preferenceName + " from file system. got exception while converting content to string");
-            } catch (JSONException e) {
-                Logger.log.w(TAG, "Failed to get value for: " + preferenceName + " from file system. got exception while converting content to JSON");
             } catch (Exception e) {
                 Logger.log.w(TAG, "Failed to get value for: " + preferenceName + " from file system. got exception while converting content to JSON");
             } finally {
                 try {
-                    fis.close();
+                    Objects.requireNonNull(fis).close();
                 } catch (Throwable ignore) {
                 }
             }
@@ -249,23 +259,13 @@ public class AndroidPersistenceHandler extends BasePersistenceHandler {
         }
     }
 
-    private class FilePreferencesReader implements Runnable {
-
-        @Nullable
-        private AirlockCallback callback;
-
-        public FilePreferencesReader(AirlockCallback callback) {
-            this.callback = callback;
-        }
-
-        public void run() {
+    public Future readPreferences() {
+        Runnable runnable = () -> {
             for (String preferenceName : filePersistPreferences) {
                 readSinglePreferenceFromFileSystem(preferenceName);
             }
-            if (this.callback != null) {
-                this.callback.onSuccess("");
-            }
-        }
+        };
+        return Executors.newSingleThreadExecutor().submit(runnable);
     }
 
     @CheckForNull
@@ -274,7 +274,6 @@ public class AndroidPersistenceHandler extends BasePersistenceHandler {
         return null;
     }
 
-    @CheckForNull
     @Override
     public void setPurchasesRandomMap(JSONObject randomMap) {
 

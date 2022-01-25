@@ -12,7 +12,7 @@
     <string name="airlock_purchases_activity_title">"Purchases"</string>
     <string name="header">Select user groups for this device. Only features and configurations that are associated with the selected groups will be available
         .</string>
-    <string name="branches_list_header">Select a branch for this device. A branch could override the airlock matser configuration. Click on button to clear branch selection.</string>
+    <string name="branches_list_header">Note: Branch selected overrides the airlock matser configuration.</string>
     <string name="servers_header">Select the Airlock server that the device will be associated with by default.</string>
     <string name="entitlements_list_header">Select an entitlement you want to debug</string>
     <string name="streams_list_header">Select a streams you want to debug</string>
