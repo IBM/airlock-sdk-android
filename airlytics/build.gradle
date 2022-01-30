@@ -13,7 +13,6 @@ allprojects {
     }
 }
 
-
 android {
     compileSdkVersion 28
 
@@ -41,10 +40,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
-    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.9.1'
     implementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0"
@@ -60,5 +59,78 @@ dependencies {
     androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0") {
         exclude group: 'org.mockito'
+    }
+}
+
+ext {
+    SNAPSHOT = true
+    BUILD_NUMBER = System.getenv("BUILD_NUMBER") ?: devBuildNumber
+    VERSION_MICRO_BUILD_NUMBER = project.hasProperty("releaseMicroBuildNumber") ? releaseMicroBuildNumber : 0
+//    REPO_URL = SNAPSHOT ? "https://oss.sonatype.org/content/repositories/snapshots" :
+//            "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+//    REPO_URL = SNAPSHOT ? layout.buildDirectory.dir('debugRepo') : layout.buildDirectory.dir('releaseRepo')
+    REPO_URL = 'https://mymavenrepo.com/repo/emHgLatobJp1BVNjpBRC/'
+
+    VERSION_MAJOR_SDK = project.hasProperty("releaseMajorBuildNumber") ? releaseMajorBuildNumber : 0
+    VERSION_MINOR_SDK = project.hasProperty("releaseMinorBuildNumber") ? releaseMinorBuildNumber : 0
+    VERSION_MICRO_SDK = project.hasProperty("releaseMicroBuildNumber") ? releaseMicroBuildNumber : 0
+    VERSION_EXTENSION_SDK = SNAPSHOT ? "-SNAPSHOT" : ""
+    VERSION_MICRO_SDK = SNAPSHOT ? "$BUILD_NUMBER" : VERSION_MICRO_BUILD_NUMBER
+    VERSION_SDK = "$VERSION_MAJOR_SDK.$VERSION_MINOR_SDK.$VERSION_MICRO_SDK$VERSION_EXTENSION_SDK"
+
+//    REPOSITORY_PASSWORD = project.hasProperty("sonatypePassword") ? sonatypePassword : ""
+    REPOSITORY_PASSWORD = sonatypePassword
+//    REPOSITORY_USER = project.hasProperty("sonatypeUsername") ? sonatypeUsername : ""
+    REPOSITORY_USER = sonatypeUsername
+
+}
+
+group = 'com.ibm.android'
+version = VERSION_SDK
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called “snapshot”.
+            snapshot(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.release
+                pom {
+                    name = "Airlytics SDK for Android"
+                    packaging = 'aar'
+                    description = 'The Airlock SDK determines which features are enabled for a particular application based on the user profile and device context (locale, location, device type, etc.).'
+                    artifactId = "airlytics-sdk-android"
+                    url = 'https://github.com/IBM/airlock-sdk-android.git'
+                    scm {
+                        url =  'scm:git@github.com:IBM/airlock-sdk-android.git'
+                        connection = 'scm:git@github.com:IBM/airlock-sdk-android.git'
+                        developerConnection = 'scm:git@github.com:IBM/airlock-sdk-android.git'
+                    }
+                    licenses {
+                        license {
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution = 'repo'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'denusdv'
+                            name = 'Denis Voloshin'
+                        }
+                    }
+                }
+            }
+        }
+        repositories {
+            maven {
+                name = 'repo1'
+                url = REPO_URL
+                credentials {
+                    username REPOSITORY_USER
+                    password REPOSITORY_PASSWORD
+                }
+            }
+        }
     }
 }

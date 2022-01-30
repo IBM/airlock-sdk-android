@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FeaturesListFragment">
+    tools:context="com.ibm.airlock.sdk.ui.FeaturesListFragment">
 
-    <!--<fragment class="com.weather.airlock.sdk.ui.FeaturesListFragment"-->
+    <!--<fragment class="FeaturesListFragment"-->
     <!--android:id="@+id/features" android:layout_weight="1"-->
     <!--android:layout_width="0px" android:layout_height="match_parent" />-->
 

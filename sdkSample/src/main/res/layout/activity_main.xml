@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.weather.airlockSampleApp.MainActivity">
+    tools:context="com.ibm.airlockSampleApp.MainActivity">
 
     <TextView
         android:id="@+id/featureTitle"

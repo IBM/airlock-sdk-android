@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.weather.app">
+    package="com.ibm.app">
 
     <application
         android:allowBackup="true"
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.weather.airlytics.sessions.CloseSessionService"/>
+        <service android:name="com.ibm.airlytics.sessions.CloseSessionService"/>
 
     </application>
 

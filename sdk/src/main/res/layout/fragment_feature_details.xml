@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    tools:context="com.weather.airlock.sdk.ui.FeatureDetailsFragment">
+    tools:context="com.ibm.airlock.sdk.ui.FeatureDetailsFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -494,7 +494,7 @@
 
         <view
             android:id="@+id/configuration_list"
-            class="com.weather.airlock.sdk.ui.FeatureDetailsFragment$NestedListView"
+            class="com.ibm.airlock.sdk.ui.FeatureDetailsFragment$NestedListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

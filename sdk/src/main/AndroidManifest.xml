@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.weather.airlock.sdk">
+    package="com.ibm.airlock.sdk">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
-        <service android:name="com.weather.airlytics.sessions.CloseSessionService" />
+        <service android:name="com.ibm.airlytics.sessions.CloseSessionService" />
 
     </application>
 

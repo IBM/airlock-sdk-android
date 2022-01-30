@@ -31,11 +31,11 @@
     <fields>;
 }
 
--keep public class com.weather.airlock.sdk.AirlockManager{
+-keep public class com.ibm.airlock.sdk.AirlockManager{
   public *;
 }
 
--keep public class com.weather.airlock.sdk.AirlyticsConstants{
+-keep public class com.ibm.airlock.sdk.AirlyticsConstants{
   public *;
 }
 

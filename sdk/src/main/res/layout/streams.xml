@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/container"
-        android:name="com.weather.airlock.sdk.ui.StreamsListFragment"
+        android:name="com.ibm.airlock.sdk.ui.StreamsListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />

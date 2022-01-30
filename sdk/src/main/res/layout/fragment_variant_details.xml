@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    tools:context="com.weather.airlock.sdk.ui.VariantDetailsFragment">
+    tools:context="com.ibm.airlock.sdk.ui.VariantDetailsFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

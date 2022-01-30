@@ -1,27 +1,32 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'jacoco'
-//apply from: '../referencefiles/gradlecommon/quality.gradle'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
+ext {
+    SNAPSHOT = true
+    BUILD_NUMBER = System.getenv("BUILD_NUMBER") ?: devBuildNumber
+    VERSION_MICRO_BUILD_NUMBER = project.hasProperty("releaseMicroBuildNumber") ? releaseMicroBuildNumber : 0
 
-task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
+    REPO_URL = SNAPSHOT ? "https://oss.sonatype.org/content/repositories/snapshots" :
+            "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+    VERSION_MAJOR_SDK = project.hasProperty("releaseMajorBuildNumber") ? releaseMajorBuildNumber : 0
+    VERSION_MINOR_SDK = project.hasProperty("releaseMinorBuildNumber") ? releaseMinorBuildNumber : 0
+    VERSION_MICRO_SDK = project.hasProperty("releaseMicroBuildNumber") ? releaseMicroBuildNumber : 0
+    VERSION_EXTENSION_SDK = SNAPSHOT ? "-SNAPSHOT" : ""
+    VERSION_MICRO_SDK = SNAPSHOT ? "$BUILD_NUMBER" : VERSION_MICRO_BUILD_NUMBER
+    VERSION_SDK = "$VERSION_MAJOR_SDK.$VERSION_MINOR_SDK.$VERSION_MICRO_SDK$VERSION_EXTENSION_SDK"
 
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
+    SONATYPE_PASSWORD = project.hasProperty("sonatypePassword") ? sonatypePassword : ""
+    SONATYPE_USER = project.hasProperty("sonatypeUsername") ? sonatypeUsername : ""
 
-    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*', '**/Lambda$*.class', '**/Lambda.class', '**/*Lambda.class', '**/*Lambda*.class', '**/*Lambda*.*', '**/*Builder.*', '**/*_MembersInjector.class', '**/*_MembersInjector.*', '**/*_*Factory*.*', '**/*Component*.*', '**/*Module*.*']
-    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-    def mainSrc = "${project.projectDir}/src/main/java"
-
-    sourceDirectories.from = files([mainSrc, "${project.projectDir}/../airlock-sdk-common/src/main/java"])
-    classDirectories.from = files([debugTree, "${project.projectDir}/../airlock-sdk-common/build/classes/main"])
-    executionData.from = fileTree(dir: "$buildDir", includes: [
-            "**/*.exec",
-            "**/*.ec"
-    ])
 }
+
+
+group = 'com.ibm.android'
+version = VERSION_SDK
 
 allprojects {
     repositories {
@@ -32,6 +37,41 @@ allprojects {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
+
+task javadoc(type: Javadoc) {
+    failOnError false
+    excludes = ['**/*.kt']
+    source = android.sourceSets.main.java.srcDirs
+    classpath += configurations.compile
+
+    afterEvaluate {
+        // Wait after evaluation to add the android classpath
+        // to avoid "buildToolsVersion is not specified" error
+        classpath += files(android.getBootClasspath())
+    }
+}
+
+build.finalizedBy(javadoc)
+
+//Creating sources with comments
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+
+//artifacts {
+//    archives androidSourcesJar
+//}
+//
+//signing {
+//    sign configurations.archives
+//}
+
 buildscript {
     repositories {
         jcenter()
@@ -40,11 +80,9 @@ buildscript {
     }
     dependencies {
         classpath 'com.dicedmelon.gradle:jacoco-android:0.1.2'
-        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
-
 
 android {
     compileSdkVersion 29
@@ -66,6 +104,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             testCoverageEnabled false
@@ -74,9 +113,6 @@ android {
 
     testOptions {
         unitTests.all {
-            jacoco {
-                includeNoLocationClasses = true
-            }
             testLogging {
                 events "passed", "skipped", "failed", "standardOut", "standardError"
                 outputs.upToDateWhen { false }
@@ -84,7 +120,6 @@ android {
             }
         }
         unitTests.returnDefaultValues = true
-
     }
 
     lintOptions {
@@ -97,22 +132,18 @@ android {
             assets.srcDirs project(':airlock-sdk-common').file("src/main/java/com/ibm/airlock/common/test/data")
         }
         test {
-            //java.srcDir project(':airlock-sdk-common').file("src/test/java")
+            java.srcDir project(':airlock-sdk-common').file("src/test/java")
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
+
 
 task copyResDirectoryToClasses(type: Copy) {
     from "${projectDir}/src/main/res/raw"
     into "${buildDir}/intermediates/classes/test/debug/res/raw"
 }
 
-//assembleDebug.dependsOn(copyResDirectoryToClasses)
 
 dependencies {
     implementation project(path: ':airlock-sdk-common')
@@ -125,16 +156,16 @@ dependencies {
     compileOnly 'org.jetbrains:annotations:13.0'
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.3.0'
     compileOnly 'org.codehaus.sonar-plugins:sonar-ant-task:2.2'
-    compileOnly 'org.jetbrains:annotations:13.0'
     compileOnly 'com.google.android:annotations:4.1.1.4'
     compileOnly 'com.squareup.okhttp3:okhttp:3.9.1'
     compileOnly 'com.squareup.okhttp3:okhttp-urlconnection:3.9.1'
+    compileOnly 'com.google.guava:guava:30.0-android'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'org.mockito:mockito-core:1.9.5'
     androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
     androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
-    androidTestImplementation files('../sdkSample/lib/qa_utils.jar')
+    androidTestCompile files('../sdkSample/lib/qa_utils.jar')
     androidTestImplementation 'com.google.android:annotations:4.1.1.4'
     javadocDeps 'androidx.appcompat:appcompat:1.3.0'
     javadocDeps 'com.squareup.okhttp3:okhttp:3.9.1'
@@ -156,10 +187,10 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.5.1'
     testImplementation 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
     testImplementation 'junit:junit:4.12','com.github.peterwippermann.junit4:parameterized-suite:1.1.0'
-    implementation 'com.weather.android:airlytics:1.0.53'
+    implementation project(':airlytics')
+//    implementation 'com.weather.android:airlytics:1.0.53'
     androidTestImplementation 'androidx.test:core:1.4.0'
     implementation group: 'com.sangupta', name: 'murmur', version: '1.0.0'
-    compileOnly 'com.google.guava:guava:30.0-android'
 }
 
 
@@ -171,14 +202,6 @@ gradle.taskGraph.whenReady {
     }
 }
 
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.javadocDeps
-    println android.getBootClasspath()
-    destinationDir = file("$buildDir/javadoc/")
-    failOnError false
-}
 
 //ignore all test failures - is done temporary, the final solution is test categorization
 project.gradle.taskGraph.whenReady {
@@ -191,6 +214,123 @@ project.gradle.taskGraph.whenReady {
         it.ignoreFailures = true
     }
 }
-repositories {
-    mavenCentral()
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                pom {
+                    name = "Airlock SDK for Android"
+                    packaging = 'aar'
+                    description = 'The Airlock SDK determines which features are enabled for a particular application based on the user profile and device context (locale, location, device type, etc.).'
+                    artifactId = "airlock-sdk-android"
+                    url = 'https://github.com/IBM/airlock-sdk-android.git'
+                    scm {
+                        url =  'scm:git@github.com:IBM/airlock-sdk-android.git'
+                        connection = 'scm:git@github.com:IBM/airlock-sdk-android.git'
+                        developerConnection = 'scm:git@github.com:IBM/airlock-sdk-android.git'
+                    }
+                    licenses {
+                        license {
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution = 'repo'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'denusdv'
+                            name = 'Denis Voloshin'
+                        }
+                    }
+                }
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+                pom {
+                    name = "Airlock SDK for Android"
+                    packaging = 'aar'
+                    description = 'The Airlock SDK determines which features are enabled for a particular application based on the user profile and device context (locale, location, device type, etc.).'
+                    artifactId = "airlock-sdk-android"
+                    url = 'https://github.com/IBM/airlock-sdk-android.git'
+                    scm {
+                        url =  'scm:git@github.com:IBM/airlock-sdk-android.git'
+                        connection = 'scm:git@github.com:IBM/airlock-sdk-android.git'
+                        developerConnection = 'scm:git@github.com:IBM/airlock-sdk-android.git'
+                    }
+                    licenses {
+                        license {
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution = 'repo'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'denusdv'
+                            name = 'Denis Voloshin'
+                        }
+                    }
+                }
+            }
+        }
+        repositories {
+            maven {
+                name = 'repo'
+                def releasesRepoUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+                def snapshotsRepoUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
+                url = SNAPSHOT ? snapshotsRepoUrl : releasesRepoUrl
+                credentials {
+                    username SONATYPE_USER
+                    password SONATYPE_PASSWORD
+                }
+            }
+        }
+    }
 }
+
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+////            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+//
+//            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+//                authentication(userName: SONATYPE_USER, password: SONATYPE_PASSWORD)
+//            }
+//
+//            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+//                authentication(userName: SONATYPE_USER, password: SONATYPE_PASSWORD)
+//            }
+//            pom.project {
+//                name "Airlock SDK for Android"
+//                packaging 'aar'
+//                description 'The Airlock SDK determines which features are enabled for a particular application based on the user profile and device context (locale, location, device type, etc.).'
+//                artifactId "airlock-sdk-android"
+//                url 'https://github.com/IBM/airlock-sdk-android.git'
+//                scm {
+//                    url 'scm:git@github.com:IBM/airlock-sdk-android.git'
+//                    connection 'scm:git@github.com:IBM/airlock-sdk-android.git'
+//                    developerConnection 'scm:git@github.com:IBM/airlock-sdk-android.git'
+//                }
+//                licenses {
+//                    license {
+//                        name 'The Apache Software License, Version 2.0'
+//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                        distribution 'repo'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id 'denusdv'
+//                        name 'Denis Voloshin'
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

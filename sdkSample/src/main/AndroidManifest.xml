@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.weather.airlockSampleApp"
+<manifest package="com.ibm.airlockSampleApp"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -20,34 +20,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.weather.airlock.sdk.ui.GroupsManagerActivity"
+            android:name="com.ibm.airlock.sdk.ui.GroupsManagerActivity"
             android:label="@string/user_groups_activity_title"></activity>
         <activity
-            android:name="com.weather.airlock.sdk.ui.BranchesManagerActivity"
+            android:name="com.ibm.airlock.sdk.ui.BranchesManagerActivity"
             android:label="@string/airlock_purchases_activity_title"></activity>
 
         <activity
-            android:name="com.weather.airlock.sdk.ui.StreamsManagerActivity"
+            android:name="com.ibm.airlock.sdk.ui.StreamsManagerActivity"
             android:label="@string/user_streams_activity_title"></activity>
         <activity
-            android:name="com.weather.airlock.sdk.ui.AirlyticsManagerActivity"
+            android:name="com.ibm.airlock.sdk.ui.AirlyticsManagerActivity"
             android:label="@string/user_streams_activity_title"></activity>
         <activity
-            android:name="com.weather.airlock.sdk.ui.EntitlementsManagerActivity"
+            android:name="com.ibm.airlock.sdk.ui.EntitlementsManagerActivity"
             android:label="@string/user_streams_activity_title"></activity>
         <activity
-            android:name="com.weather.airlock.sdk.ui.NotificationsManagerActivity"
+            android:name="com.ibm.airlock.sdk.ui.NotificationsManagerActivity"
             android:label="@string/user_streams_activity_title">
         </activity>
         <activity
-            android:name="com.weather.airlock.sdk.ui.AirlockSelectServerActivity"
+            android:name="com.ibm.airlock.sdk.ui.AirlockSelectServerActivity"
             android:label="@string/server_list_activity_title"></activity>
         <activity
-            android:name="com.weather.airlock.sdk.ui.DebugFeaturesActivity"
+            android:name="com.ibm.airlock.sdk.ui.DebugFeaturesActivity"
             android:label="@string/airlock_features_activity_title"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity
-            android:name="com.weather.airlock.sdk.ui.DebugExperimentsActivity"
+            android:name="com.ibm.airlock.sdk.ui.DebugExperimentsActivity"
             android:label="@string/airlock_experiments_activity_title"
             android:windowSoftInputMode="stateHidden"></activity>
     </application>
