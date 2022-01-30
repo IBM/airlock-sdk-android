@@ -1,6 +1,8 @@
 # Airlock SDK for Android
 The Airlock SDK determines which features are enabled for a particular application based on  
 the user profile and device context (locale, location, device type, etc.).
+
+The Airlock SDK contains the Airlytics SDK as module, this module enables sending events to external analytics systems. 
 ## Stable Version
 5.4.2
 ## System Requirements
@@ -184,6 +186,8 @@ The project consists of three submodules
 - airlock-sdk-common
 - sdk
 - sdkSample
+- airlytics
+- airlyticsSampleApp
 
 1. Clone the project (note, the project has a submodule dependency)
 
@@ -206,6 +210,10 @@ The project consists of three submodules
 4. The alternative is to use the official state build from Maven Center
    Use the sdkSample as a reference to see how the typical Airlock SDK integration could be done
 
+5. To build the Airlytics ARR use 
+```
+   ./gradlew airlytics:build
+```
 
 ## API documentation
 Click here for [Airlock API Javadoc documentation](https://ibm.github.io/airlock-sdk-android/).

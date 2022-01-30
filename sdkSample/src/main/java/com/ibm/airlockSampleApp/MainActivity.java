@@ -37,7 +37,6 @@ import com.ibm.airlock.sdk.ui.EntitlementsManagerActivity;
 import com.ibm.airlock.sdk.ui.GroupsManagerActivity;
 import com.ibm.airlock.sdk.ui.NotificationsManagerActivity;
 import com.ibm.airlock.sdk.ui.StreamsManagerActivity;
-import com.weather.airlockSampleApp.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
