@@ -74,16 +74,20 @@ class NetworkClientUtils {
             @Throws(IOException::class)
             override fun intercept(chain: Interceptor.Chain): Response {
                 val originalRequest = chain.request()
-                if (originalRequest.body() == null || originalRequest.header("Content-Encoding") != null) {
+                if (originalRequest.header("Content-Encoding") != null) {
                     return chain.proceed(originalRequest)
                 }
-
-                val gzip = gzip(originalRequest.body()!!)//TODO Eitan
-                val compressedRequest = originalRequest.newBuilder()
-                    .header("Content-Encoding", "deflate")
-                    .method(originalRequest.method(), gzip)
-                    .build()
-                return chain.proceed(compressedRequest)
+                val originalRequestBody = originalRequest.body()
+                originalRequestBody?.let {
+                    val gzip = gzip(it)
+                    val compressedRequest = originalRequest.newBuilder()
+                        .header("Content-Encoding", "deflate")
+                        .method(originalRequest.method(), gzip)
+                        .build()
+                    return chain.proceed(compressedRequest)
+                }
+                //if originalRequestBody is null
+                return chain.proceed(originalRequest)
             }
 
             private fun gzip(body: RequestBody): RequestBody {
