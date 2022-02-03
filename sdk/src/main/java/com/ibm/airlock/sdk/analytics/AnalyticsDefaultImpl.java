@@ -77,7 +77,6 @@ public class AnalyticsDefaultImpl implements AnalyticsApiInterface {
     private final Map<String, ALEnvironment> airlyticsEnvironmentsMap = new ConcurrentHashMap<>();
     private static final AtomicBoolean airlyticsEnabled;
     private static final AtomicBoolean airlyticsInitialized;
-    private static final AtomicBoolean disableAirlyticsLifecycle;
     private static final Map<String, Map<String, Object>> airlyticsPendingEvents = new ConcurrentHashMap<>();
     private static Set<String> userTags;
 
@@ -86,7 +85,6 @@ public class AnalyticsDefaultImpl implements AnalyticsApiInterface {
         Logger.setLogger(new AndroidLog());
         airlyticsInitialized = new AtomicBoolean(false);
         airlyticsEnabled = new AtomicBoolean(false);
-        disableAirlyticsLifecycle = new AtomicBoolean(true);
         userTags = Collections.emptySet();
     }
     public AnalyticsDefaultImpl(){
@@ -151,15 +149,7 @@ public class AnalyticsDefaultImpl implements AnalyticsApiInterface {
     }
 
     @Override
-    public void enableAnalyticsLifecycle(boolean enable) {
-        disableAirlyticsLifecycle.set(!enable);
-    }
-
-    @Override
     public void syncAnalytics() {
-        if (disableAirlyticsLifecycle.get()) {
-            return;
-        }
         ALProviderConfig debugProviderConfig = null;
 
         Feature airlyticsFeature =

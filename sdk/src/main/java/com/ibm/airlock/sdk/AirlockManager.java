@@ -122,7 +122,6 @@ public class AirlockManager extends BaseAirlockProductManager {
      *      "userAttributesSchemaVersion": <schema version for userAttributes as string (airlytics)>
      *      "initCallback": <callback function to be called when airlock is ready and functional></>,
      *      "isDevUser": boolean if user is  dev user - true
-     *      "enableAnalyticsLifecycle" : boolean the defines whether use airlytics lifecycle or not
      *
      * @throws AirlockInvalidFileException Thrown when the defaults file does not contain the proper content.
      * @throws IOException                 Thrown when the defaults file cannot be opened.
@@ -170,8 +169,6 @@ public class AirlockManager extends BaseAirlockProductManager {
                 } else if (param instanceof Boolean) {
                     if (!this.additionalParams.containsKey("isDevUser")){
                         this.additionalParams.put("isDevUser", param);
-                    } else {
-                        this.additionalParams.put("enableAnalyticsLifecycle", param);
                     }
                 }
             }
@@ -184,9 +181,6 @@ public class AirlockManager extends BaseAirlockProductManager {
             switch (key){
                 case "isDevUser":
                     AirlockManager.isDevUser.set((Boolean) this.additionalParams.get(key));
-                    break;
-                case "enableAnalyticsLifecycle":
-                    airlyticsImpl.enableAnalyticsLifecycle(!(Boolean) this.additionalParams.get(key));
                     break;
                 case "userAttributesSchemaVersion":
                     airlyticsImpl.setUserAttributesSchemaVersion((String) this.additionalParams.get(key));
@@ -334,10 +328,6 @@ public class AirlockManager extends BaseAirlockProductManager {
     ///////////////////////////////////////////
     public void verifyAirlyticsState() {
         airlyticsImpl.verifyAnalyticsState();
-    }
-
-    public void enableAirlytics(){
-        airlyticsImpl.enableAnalyticsLifecycle(true);
     }
 
     public AnalyticsDefaultImpl getAnalyticsImpl() {

@@ -92,9 +92,16 @@ afterEvaluate {
     publishing {
         publications {
             // Creates a Maven publication called “snapshot”.
-            snapshot(MavenPublication) {
+            aar(MavenPublication) {
                 // Applies the component for the debug build variant.
-                from components.release
+                from components.debug
+//                artifacts { aarFile }
+                if (!SNAPSHOT) {
+                    artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+                } else {
+                    artifact("$buildDir/outputs/aar/${project.getName()}-debug.aar")
+                }
+
                 pom {
                     name = "Airlytics SDK for Android"
                     packaging = 'aar'
@@ -102,9 +109,9 @@ afterEvaluate {
                     artifactId = "airlytics-sdk-android"
                     url = 'https://github.com/IBM/airlock-sdk-android.git'
                     scm {
-                        url =  'scm:git@github.com:IBM/airlock-sdk-android.git'
-                        connection = 'scm:git@github.com:IBM/airlock-sdk-android.git'
-                        developerConnection = 'scm:git@github.com:IBM/airlock-sdk-android.git'
+                        url =  'git@github.com:IBM/airlock-sdk-android.git'
+                        connection = 'git@github.com:IBM/airlock-sdk-android.git'
+                        developerConnection = 'git@github.com:IBM/airlock-sdk-android.git'
                     }
                     licenses {
                         license {

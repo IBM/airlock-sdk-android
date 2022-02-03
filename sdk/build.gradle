@@ -9,9 +9,9 @@ ext {
     SNAPSHOT = true
     BUILD_NUMBER = System.getenv("BUILD_NUMBER") ?: devBuildNumber
     VERSION_MICRO_BUILD_NUMBER = project.hasProperty("releaseMicroBuildNumber") ? releaseMicroBuildNumber : 0
-
-    REPO_URL = SNAPSHOT ? "https://oss.sonatype.org/content/repositories/snapshots" :
-            "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+    REPO_URL = layout.buildDirectory.dir('debugRepo')
+//    REPO_URL = SNAPSHOT ? "https://oss.sonatype.org/content/repositories/snapshots" :
+//            "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
     VERSION_MAJOR_SDK = project.hasProperty("releaseMajorBuildNumber") ? releaseMajorBuildNumber : 0
     VERSION_MINOR_SDK = project.hasProperty("releaseMinorBuildNumber") ? releaseMinorBuildNumber : 0
     VERSION_MICRO_SDK = project.hasProperty("releaseMicroBuildNumber") ? releaseMicroBuildNumber : 0
@@ -64,10 +64,10 @@ task androidSourcesJar(type: Jar) {
 }
 
 
-//artifacts {
-//    archives androidSourcesJar
-//}
-//
+artifacts {
+    archives androidSourcesJar
+}
+
 //signing {
 //    sign configurations.archives
 //}
@@ -281,13 +281,11 @@ afterEvaluate {
         repositories {
             maven {
                 name = 'repo'
-                def releasesRepoUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
-                def snapshotsRepoUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
-                url = SNAPSHOT ? snapshotsRepoUrl : releasesRepoUrl
-                credentials {
-                    username SONATYPE_USER
-                    password SONATYPE_PASSWORD
-                }
+                url = REPO_URL
+//                credentials {
+//                    username SONATYPE_USER
+//                    password SONATYPE_PASSWORD
+//                }
             }
         }
     }
